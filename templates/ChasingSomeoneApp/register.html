@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register in Chasing Someone</title>
+</head>
+<body>
+<h1>Register Page</h1>
+{% if registered %}
+<strong>Thanks for registering!</strong>
+    <br/>
+    <a href="{% url 'ChasingSomeoneApp:index' %}">back to Home Page!</a>
+{% else %}
+<strong>Register here!</strong>
+<form id="user_form" method="post" action="{% url 'ChasingSomeoneApp:register' %}"
+      enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_P }}
+
+    <input type="submit" name="submit" value="Register" />
+</form>
+{% endif %}
+</body>
+</html>
