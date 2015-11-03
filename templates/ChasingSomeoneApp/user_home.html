@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Chasing</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="{% static 'css/bootstrap.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'css/index.css' %}" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'js/jquery-2.0.0.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+     <script type="text/javascript" src="{% static 'js/Cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/user_home.js' %}"></script>
+</head>
+
+<body>
+    <div class="header">
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="">
+    </button>
+
+{#    <input class = "logout btn btn-primary" type = "submit" value = "logout">#}
+        <a class = "logout btn btn-primary" href="{% url 'ChasingSomeoneApp:user_logout' %}" >Logout</a>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+        <div class = "container">
+            <div class = "jumbotron" >
+                <div class="modal-dialog">
+                
+                <img src="{% static 'img/profile.jpg' %}" class = "profile-photo" >
+                    <div class="user-name">
+                        {{ user.username }}
+                    </div>
+                    <div class="intro">
+                        <text>input your intro here.<br>
+                        (This is the ECE651 project)
+                        </text>
+                        <!--edit-->
+                    </div>
+                </div>
+
+                <div class="user-items">
+              <!--关注管理点击后切换到一个列表可以删除添加-->
+                </div>
+                <div class="user-info">
+              <!--可以编辑个人信息-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
+    <div class="website-logo">
+    
+    </div>
+    </div>
+    <div class="content">
+        <nav class="navbar navbar-default" role="navigation" style="position: fixed; width: 230px; height: 100%; border-left: 1px solid #fafafa;  border-right: 1px solid #fafafa; border-bottom:1px solid #fafafa; margin-top:80px;marigin-bottom:80px;float:left">
+
+        <div class="navbar-header" >
+            <button class="navbar-brand" style="border-style:none" onclick="get_status_tw()">Home</button>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse" style = "font-size:18px;">
+            <ul class="nav navbar-nav">
+                <li style="width: 100%"><button onclick="show_add_follower()">Add Following</button></li>
+                <li style="width: 100%"><button >+</button></li>
+            </ul>
+        </div>
+        </nav>
+
+<!--home page-->
+
+        <div id="post_div" class= "content-right-post">
+            <!--Post module -->
+{#            <div id="post_div_anchor"></div>#}
+{#            <div class = "post-info">#}
+{#                <div class = "user-profile">#}
+{#                    <img src="{% static 'img/user-image.jpg' %}">#}
+{#                </div>#}
+{##}
+{#                <div >#}
+{#                    <p class = "nickname">Dodolog</p>#}
+{#                </div>#}
+{#                <br>#}
+{#                <div class = "post-date">#}
+{#                    Sun Aug 28 13:38:46 +0000 2011#}
+{#                </div>#}
+{##}
+{#                <div class = "status">#}
+{#                    <p>Hello everyone! This is the status~</p>#}
+{#                </div>#}
+{##}
+{#                <div class = "post-image">#}
+{#                    <img src = "{% static 'img/post-image.jpg' %}" >#}
+{#                </div>#}
+{#            </div>#}
+
+            <!--Post module -->
+{#            <div class = "post-info">#}
+{#                <div class = "user-profile">#}
+{#                    <img src="{% static 'img/user-image.jpg' %}">#}
+{#                </div>#}
+{##}
+{#                <div >#}
+{#                    <p class = "nickname">Dodolog</p>#}
+{#                </div>#}
+{#                <br>#}
+{#                <div class = "post-date">#}
+{#                    Sun Aug 28 13:38:46 +0000 2011#}
+{#                </div>#}
+{##}
+{#                <div class = "status">#}
+{#                    <p>Hello everyone! This is the status~</p>#}
+{#                </div>#}
+{##}
+{#                <div class = "post-image">#}
+{#                    <img src = "{% static 'img/post-image.jpg' %}" >#}
+{#                </div>#}
+{#            </div>#}
+        </div>
+
+<!--add page-->
+
+        <div id='add_follower_div' class="content-right-add" style="display: none">
+            <div class = "hint">
+                Choose the social network and add your following!
+            </div>
+            <div class = "socialnetwork1">
+                <div class = "title">
+                    <div class = "logo1">
+                    Twitter
+                    </div>
+                    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo" style = "margin-left:250px;margin-bottom:30px;">
+                    choose
+                    </button>
+                </div>
+
+                <div id="demo" class="collapse">
+                    <div class = "add-form1">
+                        <form method="post" action = "#" enctype="multipart/form-data">
+                            <div class = "form-left">
+                                <p for="#" >Username:</p>
+                                <p for="#">User ID:</p>
+                            </div>
+
+                            <div class = "form-right">
+                                <input id="screen_name" maxlength="30" name="username" type="text">
+                                <input id="follower_id" maxlength="30" name="userid" type="text">
+                            </div>
+
+                            <input name="submit" value="OK" type="button" class="confirm-button" onclick="add_follower_tw()" style = "margin-bottom:30px">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "socialnetwork2">
+                <div class = "title">
+                    <div class = "logo2">
+                    Quarom
+                    </div>
+                    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo2" style = "margin-left:250px;margin-bottom:30px;">
+                    choose
+                    </button>
+                </div>
+
+                <div id="demo2" class="collapse">
+                    <div class = "add-form2">
+                        <form method="post" action = "#" enctype="multipart/form-data">
+                            <div class = "form-left">
+                                <p for="#" >Username:</p>
+                                <p for="#">User ID:</p>
+                            </div>
+
+                            <div class = "form-right">
+                                <input id="#" maxlength="30" name="username" type="text">
+                                <input id="id_email" maxlength="254" name="email" type="email">
+                            </div>
+
+                            <input name="submit" value="OK" type="submit" class="confirm-button" style = "margin-bottom:30px">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

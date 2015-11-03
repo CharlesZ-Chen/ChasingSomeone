@@ -1,8 +1,10 @@
 __author__ = 'charleszhuochen'
 from django.shortcuts import render
 from ChasingSomeoneApp.forms import UserForm, UserProfileForm
-from django.http import HttpResponse
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 # Create your views here.
+
 
 def register(request):
     registered = False
@@ -34,4 +36,11 @@ def register(request):
     context_dict = {'user_form':user_form,
                     'profile_form': profile_form,
                     'registered': registered}
-    return render(request,'ChasingSomeoneApp/register.html', context_dict)
+    return render(request, 'ChasingSomeoneApp/register.html', context_dict)
+
+
+def user_home(request):
+    if request.user.is_authenticated():
+        return render(request, 'ChasingSomeoneApp/user_home.html')
+    else:
+        return HttpResponseRedirect(reverse('ChasingSomeoneApp:user_login'))

@@ -1,25 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Register in Chasing Someone</title>
-</head>
-<body>
-<h1>Register Page</h1>
-{% if registered %}
-<strong>Thanks for registering!</strong>
-    <br/>
-    <a href="{% url 'ChasingSomeoneApp:index' %}">back to Home Page!</a>
-{% else %}
-<strong>Register here!</strong>
-<form id="user_form" method="post" action="{% url 'ChasingSomeoneApp:register' %}"
-      enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ user_form.as_p }}
-    {{ profile_form.as_P }}
+	<title>Register-Chasing</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<link href = "{% static 'css/base.css' %}" type="text/css" rel="stylesheet">
+	<link href = "{% static 'css/register.css' %}" type="text/css" rel="stylesheet">
 
-    <input type="submit" name="submit" value="Register" />
-</form>
-{% endif %}
+</head>
+
+<body>
+	<div class = "nav">
+		<div class = "nav-logo">
+		</div>
+        <a href="{% url 'ChasingSomeoneApp:user_login' %}" class = "button-signin">Sign In</a>
+	</div>
+    {% if registered %}
+    <div class = "welcome">Thanks for registering!</div>
+    <br/>
+    <a href="{% url 'ChasingSomeoneApp:user_login' %}" class = "button-back">Back to Home Page</a>
+    {% else %}
+	<div class = "welcome">
+		Create Your Chasing Someone Account!
+	</div>
+
+	<div class="register-form">
+		<div class="logo-image"></div>
+		<div class = "content">
+			<form id="user_form" method="post" action = "{% url 'ChasingSomeoneApp:register' %}" enctype="multipart/form-data">
+			{% csrf_token %}
+
+			<div class = "content-left">
+				<p for="id_username" >Username:</p>
+				<p for="id_email">Email address:</p> 
+				<p for="id_password" style="margin-right:37px">Password:</p>
+			</div>
+				
+			<div class = "content-right">
+				<input id="id_username" maxlength="30" name="username" type="text" title = "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only.">
+				<input id="id_email" maxlength="254" name="email" type="email">
+				<input id="id_password" name="password" type="password">
+			</div>
+        </div>
+		
+		<input name="submit" value="Register" type="submit" class="register-button">
+
+			
+		</form>
+	</div>
+    {% endif %}
 </body>
 </html>

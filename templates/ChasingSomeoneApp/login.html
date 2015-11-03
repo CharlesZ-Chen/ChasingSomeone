@@ -1,13 +1,46 @@
 <!DOCTYPE html>
-
+{% load static %}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>ChasingSomeone</title>
+    <title>Login-Chasing</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href = "{% static 'css/base.css' %}" type="text/css" rel="stylesheet">
+    <link href = "{% static 'css/login.css' %}" type="text/css" rel="stylesheet">
 </head>
+
 <body>
-<h1>Login page</h1>
-<br/>
-<a href="{% url 'ChasingSomeoneApp:register' %}">Register Here</a>
+    <div class = "login-form">
+        <div class="logo-image"></div>
+        <div class = "content">
+            <form id="login_form" method="post" action="/ChasingSomeone/login/">
+           {% csrf_token %}
+            {% if error %}
+                <p style="color: #ec407a">Error:{{ errorMessage }}</p><br/>
+            {% endif %}
+            <div class = "content-left">
+                <p for="id_username" >Username:</p>
+                <p for="id_password" style="margin-right:37px">Password:</p>
+            </div>
+                
+            <div class = "content-right">
+                <input type="text" name="username" value="" />
+                <input type="password" name="password" value="" />
+            </div>
+
+            <input type="submit" value="submit" class = "login-button" value = "login"/>
+
+            </form>
+            <div class = "content-bottom">
+                <label>Doesn't have an account?</label>
+                <a href="{% url 'ChasingSomeoneApp:register' %}">Register Here</a>
+            </div>
+            
+        </div>
+    </div>
+
+
+
 </body>
 </html>
+
+
