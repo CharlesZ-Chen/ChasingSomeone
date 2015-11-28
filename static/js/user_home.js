@@ -42,6 +42,7 @@ function add_follower_tw(){
   }
 
   function get_status_tw(){
+      $("#fresh_post_btn").attr("disabled","disabled");
       var latest_post_id = $("div.post-info").first().attr("id");
       var context_dict = {};
       //alert(latest_post_id);
@@ -59,6 +60,7 @@ function add_follower_tw(){
        $.post("/ChasingSomeone/get_status_tw/",
            context_dict
         , function(data, status){
+               $("#fresh_post_btn").removeAttr("disabled");
         if(data == "False")
          {
              return;
