@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 def user_login(request):
 
     if request.method == 'POST':
-        username= request.POST['username']
+        username = request.POST['username']
         password = request.POST['password']
         user = authenticate(username=username,password=password)
         if user:
