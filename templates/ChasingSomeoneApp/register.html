@@ -31,15 +31,17 @@
 			{% csrf_token %}
 
 			<div class = "content-left">
-				<p for="id_username" >Username:</p>
+{#				<p for="id_username" >Username:</p>#}
 				<p for="id_email">Email address:</p> 
 				<p for="id_password" style="margin-right:37px">Password:</p>
+                <p for="id_password" style="margin-right:37px">Password again:</p>
 			</div>
 				
 			<div class = "content-right">
-				<input id="id_username" maxlength="30" name="username" type="text" title = "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only.">
+{#				<input id="id_username" maxlength="30" name="username" type="text" title = "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only.">#}
 				<input id="id_email" maxlength="254" name="email" type="email">
-				<input id="id_password" name="password" type="password">
+				<input id="id_password" name="password1" type="password">
+                <input id="id_password" name="password2" type="password">
 			</div>
         </div>
 		

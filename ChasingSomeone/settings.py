@@ -9,6 +9,12 @@ https://docs.djangoproject.com/en/1.8/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
+#for gmail
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ChasingSomeoneApp@gmail.com'
+EMAIL_HOST_PASSWORD = 'pzcqkjtuscmivgsv'
+EMAIL_PORT = 587
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -88,6 +94,7 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = ('ChasingSomeone.backends.EmailAuthBackend',)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
