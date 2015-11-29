@@ -18,14 +18,14 @@ def cmp(x, y):
 
 @login_required
 def get_status(request):
+    
     if not request.method == 'POST':
         raise Http404
-    pg_sts_count = 10
+
     user_id = request.user.id
     tw_follower_list = list(TwFollower.objects.filter(user_id=user_id))
     tw_crawler = Crawler_twitter()
     total_json_status_list = []
-    json_status_list = []
 
     if 'id_latest_status' in request.POST:
         id_latest_status = request.POST['id_latest_status']
