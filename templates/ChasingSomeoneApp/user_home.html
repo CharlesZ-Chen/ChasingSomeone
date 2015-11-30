@@ -4,71 +4,140 @@
 <head>
     <title>Chasing</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <link href="{% static 'css/bootstrap.css' %}" type="text/css" rel="stylesheet">
-    <link href="{% static 'css/index.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'css/index.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'css/normalize.css' %}" rel="stylesheet" type="text/css" />
+{#    <link href="{% static 'css/demo.css'%}" rel="stylesheet" type="text/css"/>#}
     <script type="text/javascript" src="{% static 'js/jquery-2.0.0.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-     <script type="text/javascript" src="{% static 'js/Cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/Cookie.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/user_home.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/modernizr.custom.js' %}"></script>
+
+
 </head>
 
 <body>
-    <div class="header">
-{#    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="">#}
-{#    </button>#}
-
+    <div class="header" onscroll = "no">
+        <div class="header-left">
+            <div class = "nav">
+                Home
+            </div>
+            <div class = "nav">
+                Following
+            </div>
+            <div class = "nav">
+                Favorite
+            </div>
+            <div class = "nav">
+                Information
+            </div>
+        </div>
         <div class = "header-right">
             <a class = "logout" href="{% url 'ChasingSomeoneApp:user_logout' %}" >Logout</a>
         </div>
-
-{#    <!-- Modal -->#}
-{#    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >#}
-{#        <div class = "container">#}
-{#            <div class = "jumbotron" >#}
-{#                <div class="modal-dialog">#}
-{#                #}
-{#                <img src="{% static 'img/profile.jpg' %}" class = "profile-photo" >#}
-{#                    <div class="user-name">#}
-{#                        {{ user.username }}#}
-{#                    </div>#}
-{#                    <div class="intro">#}
-{#                        <text>input your intro here.<br>#}
-{#                        (This is the ECE651 project)#}
-{#                        </text>#}
-{#                        <!--edit-->#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#                <div class="user-items">#}
-{#              <!--关注管理点击后切换到一个列表可以删除添加-->#}
-{#                </div>#}
-{#                <div class="user-info">#}
-{#              <!--可以编辑个人信息-->#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#    <!-- /.modal -->#}
-
     </div>
 
     <div class="content">
-        <nav class="navbar navbar-default" role="navigation" style="position: fixed; width: 230px; height: 100%; border-left: 1px solid #fafafa;  border-right: 1px solid #fafafa; border-bottom:1px solid #fafafa; margin-top:80px;marigin-bottom:80px;float:left">
+    <div class="content-in">
 
-        <div class="navbar-header" >
-            <button id="fresh_post_btn" class="navbar-brand" style="border-style:none" onclick="get_status_tw()">Home</button>
+        <div class="content-left" id="trigger-overlay">
+            <div class="title">&nbsp &nbsp &nbsp Website</div>
+            <div class="list">
+                <div class="list-item">&nbsp &nbspTwitter</div>
+                <div class="list-item">&nbsp &nbspFacebook</div>
+            </div>
         </div>
-        <div class="collapse navbar-collapse" id="example-navbar-collapse" style = "font-size:18px;">
-            <ul class="nav navbar-nav">
-                <li style="width: 100%"><button onclick="show_add_follower()">Add Following</button></li>
-                <li style="width: 100%"><button >+</button></li>
-            </ul>
+
+        <div class="overlay overlay-contentpush">
+			<button type="button" class="overlay-close" value="Back"></button>
+            <div class="push-content">
+                <div class="push-nav">
+                    <ul>
+                        <li href="#">Facebook</li>
+                        <li href="#">Twitter</li>
+                    </ul>
+                </div>
+                <div class="push-post-list">
+                    <div class="push-post">
+                        <div class="post-title">
+                            <img src="../../static/img/profile_img.png"/>
+                            <div class="name">Charles Chen1</div>
+                            <div class="time">11:11 29 Nov 2015</div>
+                        </div>
+                        <div class="post-info">This is the content of one post!
+                        </div>
+{#                        <div class="post-img">#}
+{#                            <img src="../../static/img/post_img.png"/>#}
+{#                        </div>#}
+                    </div>
+
+                    <div class="push-post">
+                        <div class="post-title">
+                            <img src="../../static/img/profile_img.png"/>
+                            <div class="name">Charles Chen2</div>
+                            <div class="time">11:11 29 Nov 2015</div>
+                        </div>
+                        <div class="post-info">This is the content of one post!
+                        </div>
+                        <div class="post-img">
+                            <img src="#"/>
+                        </div>
+                    </div>
+
+                     <div class="push-post">
+                        <div class="post-title">
+                            <img src="../../static/img/profile_img.png"/>
+                            <div class="name">Charles Chen3</div>
+                            <div class="time">11:11 29 Nov 2015</div>
+                        </div>
+                        <div class="post-info">This is the content of one post!
+                        </div>
+                        <div class="post-img">
+                            <img src="#"/>
+                        </div>
+                    </div>
+
+                     <div class="push-post">
+                        <div class="post-title">
+                            <img src="../../static/img/profile_img.png"/>
+                            <div class="name">Charles Chen4</div>
+                            <div class="time">11:11 29 Nov 2015</div>
+                        </div>
+                        <div class="post-info">This is the content of one post!
+                        </div>
+                        <div class="post-img">
+                            <img src="#"/>
+                        </div>
+                     </div>
+
+
+                </div>
+
+            </div>
+
         </div>
-        </nav>
+
+        <script type="text/javascript" src="{% static 'js/classie.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/demo7.js' %}"></script>
+
+
+        <div class="content-right">
+            <div class="title">&nbsp &nbsp &nbsp Follower</div>
+            <div class="list">
+                <div class="list-item">&nbsp &nbspCharles</div>
+                <div class="list-item">&nbsp &nbspColin</div>
+                <div class="list-item">&nbsp &nbspChloe</div>
+                <div class="list-item">&nbsp &nbspMore</div>
+            </div>
+        </div>
+    </div>
+    </div>
+
 
 <!--home page-->
 
-        <div id="post_div" class= "content-right-post">
+{#        <div id="post_div" class= "content-right-post">#}
             <!--Post module -->
 {#            <div id="post_div_anchor"></div>#}
 {#            <div class = "post-info">#}
@@ -115,74 +184,73 @@
 {#                    <img src = "{% static 'img/post-image.jpg' %}" >#}
 {#                </div>#}
 {#            </div>#}
-        </div>
+{#        </div>#}
 
 <!--add page-->
 
-        <div id='add_follower_div' class="content-right-add" style="display: none">
-            <div class = "hint">
-                Choose the social network and add your following!
-            </div>
-            <div class = "socialnetwork1">
-                <div class = "title">
-                    <div class = "logo1">
-                    Twitter
-                    </div>
-                    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo" style = "margin-left:250px;margin-bottom:30px;">
-                    choose
-                    </button>
-                </div>
-
-                <div id="demo" class="collapse">
-                    <div class = "add-form1">
-                        <form method="post" action = "#" enctype="multipart/form-data">
-                            <div class = "form-left">
-                                <p for="#" >Username:</p>
-                                <p for="#">User ID:</p>
-                            </div>
-
-                            <div class = "form-right">
-                                <input id="screen_name" maxlength="30" name="username" type="text">
-                                <input id="follower_id" maxlength="30" name="userid" type="text">
-                            </div>
-
-                            <input name="submit" value="OK" type="button" class="confirm-button" onclick="add_follower_tw()" style = "margin-bottom:30px">
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <div class = "socialnetwork2">
-                <div class = "title">
-                    <div class = "logo2">
-                    Quora
-                    </div>
-                    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo2" style = "margin-left:250px;margin-bottom:30px;">
-                    choose
-                    </button>
-                </div>
-
-                <div id="demo2" class="collapse">
-                    <div class = "add-form2">
-                        <form method="post" action = "#" enctype="multipart/form-data">
-                            <div class = "form-left">
-                                <p for="#" >Username:</p>
-                                <p for="#">User ID:</p>
-                            </div>
-
-                            <div class = "form-right">
-                                <input id="#" maxlength="30" name="username" type="text">
-                                <input id="id_email" maxlength="254" name="email" type="email">
-                            </div>
-
-                            <input name="submit" value="OK" type="submit" class="confirm-button" style = "margin-bottom:30px">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
+{#        <div id='add_follower_div' class="content-right-add" style="display: none">#}
+{#            <div class = "hint">#}
+{#                Choose the social network and add your following!#}
+{#            </div>#}
+{#            <div class = "socialnetwork1">#}
+{#                <div class = "title">#}
+{#                    <div class = "logo1">#}
+{#                    Twitter#}
+{#                    </div>#}
+{#                    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo" style = "margin-left:250px;margin-bottom:30px;">#}
+{#                    choose#}
+{#                    </button>#}
+{#                </div>#}
+{##}
+{#                <div id="demo" class="collapse">#}
+{#                    <div class = "add-form1">#}
+{#                        <form method="post" action = "#" enctype="multipart/form-data">#}
+{#                            <div class = "form-left">#}
+{#                                <p for="#" >Username:</p>#}
+{#                                <p for="#">User ID:</p>#}
+{#                            </div>#}
+{##}
+{#                            <div class = "form-right">#}
+{#                                <input id="screen_name" maxlength="30" name="username" type="text">#}
+{#                                <input id="follower_id" maxlength="30" name="userid" type="text">#}
+{#                            </div>#}
+{##}
+{#                            <input name="submit" value="OK" type="button" class="confirm-button" onclick="add_follower_tw()" style = "margin-bottom:30px">#}
+{#                        </form>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <div class = "socialnetwork2">#}
+{#                <div class = "title">#}
+{#                    <div class = "logo2">#}
+{#                    Quora#}
+{#                    </div>#}
+{#                    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo2" style = "margin-left:250px;margin-bottom:30px;">#}
+{#                    choose#}
+{#                    </button>#}
+{#                </div>#}
+{##}
+{#                <div id="demo2" class="collapse">#}
+{#                    <div class = "add-form2">#}
+{#                        <form method="post" action = "#" enctype="multipart/form-data">#}
+{#                            <div class = "form-left">#}
+{#                                <p for="#" >Username:</p>#}
+{#                                <p for="#">User ID:</p>#}
+{#                            </div>#}
+{##}
+{#                            <div class = "form-right">#}
+{#                                <input id="#" maxlength="30" name="username" type="text">#}
+{#                                <input id="id_email" maxlength="254" name="email" type="email">#}
+{#                            </div>#}
+{##}
+{#                            <input name="submit" value="OK" type="submit" class="confirm-button" style = "margin-bottom:30px">#}
+{#                        </form>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{##}
 </body>
 </html>
+

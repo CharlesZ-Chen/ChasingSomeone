@@ -1,23 +1,9 @@
 body
 {
    font-family:  Arial, sans-serif;
-   background-image: url("../img/login-left.jpg");
    background-repeat: no-repeat;
    background-attachment:fixed;
    background-position: 30% 70%; 
-}
-
-.login-form
-{
-   width:315px;
-   height: 320px;
-   padding: 25px;
-   margin-left: auto;
-   margin-right: auto;
-   margin-top: 150px;
-   background-color: #ddd;
-   box-shadow: 4px 2px 2px #ccc;
-   color: #000;
 }
 
 .logo-image

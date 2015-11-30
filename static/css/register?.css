@@ -63,7 +63,7 @@ body
 	background-image: url("../img/logo.png");
 	margin: 0 auto;
 }
-.content
+.re-content
 {
 	margin: 0 auto;
 	margin-top: 12px;
@@ -71,25 +71,25 @@ body
 	float: left;
 }
 
-.content-left
+.re-content-left
 {
 	float: left;
 	padding-left: 25px;
 	width: 120px;
 }
 
-.content-left p
+.re-content-left p
 {
 	margin-top:18px;
 }
 
-.content-right
+.re-content-right
 {
 	float: left;
 	width: 165px;
 }
 
-.content-right input
+.re-content-right input
 {
 	margin-top:15px;
 }
