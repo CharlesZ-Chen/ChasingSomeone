@@ -72,6 +72,56 @@
 }
 
 
+.register
+{
+	width: 60%;
+	margin: 15% auto;
+	color: #333;
+	font-size: 18px;
+}
+
+.re-content-left
+{
+	float: left;
+	padding-left: 25px;
+    width: 40%;
+	text-indent: 50%;
+}
+
+.re-content-left p
+{
+	margin-top:18px;
+	display: block;
+}
+
+.re-content-right
+{
+	float: left;
+	width: 60%;
+}
+
+.re-content-right input
+{
+	margin-top:15px;
+	margin-left: 10%;
+	display: block;
+}
+
+.register-button
+{
+	float: left;
+	width: 250px;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 25px;
+	margin-left: 30%;
+	color: #fff;
+	font-size: 16px;
+	border-color: transparent;
+	background-color: #337ab7;
+	border-radius: 5px;
+	text-align: center;
+}
 
 .st-container {
 	position: absolute;
@@ -284,10 +334,7 @@
 }
 
 #st-control-1:checked ~ .st-scroll #st-panel-1 h2,
-#st-control-2:checked ~ .st-scroll #st-panel-2 h2,
-#st-control-3:checked ~ .st-scroll #st-panel-3 h2,
-#st-control-4:checked ~ .st-scroll #st-panel-4 h2,
-#st-control-5:checked ~ .st-scroll #st-panel-5 h2{
+#st-control-2:checked ~ .st-scroll #st-panel-2 h2, {
 	-webkit-animation: moveDown 0.6s ease-in-out 0.2s backwards;
 	-moz-animation: moveDown 0.6s ease-in-out 0.2s backwards;
 	-o-animation: moveDown 0.6s ease-in-out 0.2s backwards;
@@ -364,10 +411,7 @@
 	-webkit-backface-visibility: hidden;
 }
 #st-control-1:checked ~ .st-scroll #st-panel-1 .c,
-#st-control-2:checked ~ .st-scroll #st-panel-2 .c,
-#st-control-3:checked ~ .st-scroll #st-panel-3 .c,
-#st-control-4:checked ~ .st-scroll #st-panel-4 .c,
-#st-control-5:checked ~ .st-scroll #st-panel-5 .c{
+#st-control-2:checked ~ .st-scroll #st-panel-2 .c,{
 	-webkit-animation: moveUp 0.6s ease-in-out 0.2s backwards;
 	-moz-animation: moveUp 0.6s ease-in-out 0.2s backwards;
 	-o-animation: moveUp 0.6s ease-in-out 0.2s backwards;

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{#  	<link rel="stylesheet" type="text/css" href="{% static 'css/default_intro.css' %}" />#}
+{#        <link rel="stylesheet" type="text/css" href="{% static 'css/demo_intro.css' %}" />#}
+{#        <link rel="stylesheet" type="text/css" href="{% static 'css/style_intro.css' %}" />#}
+{#		<script type="text/javascript" src="{% static 'js/modernizr.custom.79639.js' %}"></script>#}
+
+        <link rel="stylesheet" type="text/css" href="../../static/css/default_intro.css" />
+        <link rel="stylesheet" type="text/css" href="../../static/css/demo_intro.css" />
+        <link rel="stylesheet" type="text/css" href="../../static/css/style_intro.css" />
+		<script type="text/javascript" src="../../static/js/modernizr.custom.79639.js"></script>
+{##}
+{#        <link href = "../../static/css/base.css" type="text/css" rel="stylesheet">#}
+{#        <link href = "../../static/css/login.css" type="text/css" rel="stylesheet">#}
+    </head>
+
+    <body>
+        <div class="container">
+			<div class="st-container">
+			
+				<input type="radio" name="radio-set" checked="checked" id="st-control-1"/>
+				<a href="#st-panel-1">SignIn</a>
+				<input type="radio" name="radio-set" id="st-control-2"/>
+				<a href="#st-panel-2">SignUp</a>
+				
+				<div class="st-scroll">
+					<!--signin section-->
+					<section class="st-panel" id="st-panel-1">
+						<h2>Chasing</h2>
+						<div class = "c">Sign in here!</div>
+
+                        <div class="login">
+                            <form class = "login-form" id="login_form" method="post" action="/ChasingSomeone/login/">
+                                <input type='hidden' name='csrfmiddlewaretoken' value='Q7DgtRj9E4QL2cXYHFdBWwdVG4QkZOiO' />
+                                <div class = "content-left">
+                                    <p for="id_username" >Username:</p>
+                                    <p for="id_password" >Password:</p>
+                                </div>
+
+                                <div class = "content-right">
+                                    <input type="text" name="username" value="" />
+                                    <input type="password" name="password" value="" />
+                                </div>
+                            </form>
+
+                            <div class="login-button">
+                                <input type="submit" value="submit" name = "login"/>
+                            </div>
+                            <div class = "content-bottom">
+                                <label>Doesn't have an account?</label>
+                                <a href="#st-panel-2">Register Here</a>
+                            </div>
+						</div>
+
+					</section>
+
+                    <!--signUp section-->
+					<section class="st-panel st-color" id="st-panel-2">
+						<h2>Chasing</h2>
+						<div class = "c">Create your own ChasingSomeone account!</div>
+
+                        <div class="register">
+
+                            <form id="user_form" method="post" action = "/ChasingSomeone/register/" enctype="multipart/form-data">
+                            <input type='hidden' name='csrfmiddlewaretoken' value='Q7DgtRj9E4QL2cXYHFdBWwdVG4QkZOiO' />
+
+                                <div class = "re-content-left">
+                                    <p for="id_email">Email address:</p>
+                                    <p for="id_password">Password:</p>
+                                    <p for="id_password">Password again:</p>
+                                </div>
+
+                                <div class = "re-content-right">
+
+                                    <input id="id_email" maxlength="254" name="email" type="email">
+                                    <input id="id_password" name="password1" type="password">
+                                    <input id="id_password" name="password2" type="password">
+                                </div>
+                            </form>
+
+                            <a href="#st-panel-1" name="submit" class="register-button">SignUp</a>
+                        </div>
+					</section>
+
+				</div>
+			</div>
+        </div>
+	</body>
+</html>
