@@ -33,6 +33,7 @@
 			}
 		}
 		else if( !classie.has( overlay, 'close' ) ) {
+			overlay.focus();
 			classie.add( overlay, 'open' );
 			classie.add( container, 'overlay-open' );
 		}
