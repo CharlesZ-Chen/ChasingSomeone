@@ -7,7 +7,7 @@
 	float: left;
 	color:#d5d5d5;
 	margin-bottom: 100px;
-	overflow:auto;
+	overflow:hidden;
 }
 
 .header-left
@@ -163,6 +163,7 @@
 	transform: translateX(0%);
 	-webkit-transition: -webkit-transform 0.5s;
 	transition: transform 0.5s;
+	overflow: auto;
 }
 
 @media screen and (max-height: 30.5em) {
