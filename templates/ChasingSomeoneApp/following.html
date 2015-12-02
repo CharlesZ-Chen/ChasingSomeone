@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../../static/css/following.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="../../static/js/jquery-2.0.0.js"></script>
+    <script type="text/javascript" src="../../static/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="header" onscroll = "no">
+        <div class="header-left">
+            <div class = "nav">
+                Home
+            </div>
+            <div class = "nav">
+                Following
+            </div>
+            <div class = "nav">
+                Favorite
+            </div>
+            <div class = "nav">
+                Information
+            </div>
+        </div>
+        <div class = "header-right">
+            <a class = "logout" href="{% url 'ChasingSomeoneApp:user_logout' %}" >Logout</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="title">Following List</div>
+        <div class="function-button">
+            <a>add</a>
+            <a>edit</a>
+        </div>
+        <!--following list-->
+        <div class="following-list">
+
+            <div class="following-item">
+                <div class="profile-picture">
+                    <img src="../../static/img/profile_picture.png">
+                </div>
+                <div class="following-name">
+                    charles
+                </div>
+                <a href="#">more information</a>
+            </div>
+
+            <div class="following-item">
+                <div class="profile-picture">
+                    <img src="../../static/img/profile_picture.png">
+                </div>
+                <div class="following-name">
+                    charles
+                </div>
+                <a href="#">more information</a>
+            </div>
+
+            <div class="following-item">
+                <div class="profile-picture">
+                    <img src="../../static/img/profile_picture.png">
+                </div>
+                <div class="following-name">
+                    charles
+                </div>
+                <a href="#">more information</a>
+            </div>
+
+            <div class="following-item">
+                <div class="profile-picture">
+                    <img src="../../static/img/profile_picture.png">
+                </div>
+                <div class="following-name">
+                    charles
+                </div>
+                <a href="#">more information</a>
+            </div>
+
+            <div class="following-item">
+                <div class="profile-picture">
+                    <img src="../../static/img/profile_picture.png">
+                </div>
+                <div class="following-name">
+                    charles
+                </div>
+                <a href="#">more information</a>
+            </div>
+
+            <div class="following-item">
+                <div class="profile-picture">
+                    <img src="../../static/img/profile_picture.png">
+                </div>
+                <div class="following-name">
+                    charles
+                </div>
+                <a href="#">more information</a>
+            </div>
+
+        </div>
+        <!--add follower name-->
+        <div class="follower-name">
+            <div class="add-hint">Add the people you want to follow's nickname:</div>
+            <input type="text" name="fname" />
+            <a>cancel</a>
+            <a>next</a>
+        </div>
+
+        <!--add social website-->
+        <div id='add_follower_div' class="content-right-add">
+            <div class = "hint">
+                Choose the social network and add your following!
+            </div>
+
+            <div id="demo" class = "socialnetwork collapse">
+                <div class = "title">
+                    <div class = "logo">
+                    Twitter
+                    </div>
+                </div>
+
+                <div class = "add-form">
+                    <form method="post" action = "#" enctype="multipart/form-data">
+                        <div class = "form-left">
+                            <p for="#" >Username:</p>
+                            <p for="#">User ID:</p>
+                        </div>
+
+                        <div class = "form-right">
+                            <input id="screen_name" maxlength="30" name="username" type="text">
+                            <input id="follower_id" maxlength="30" name="userid" type="text">
+                        </div>
+
+                        <input name="submit" value="check" type="button" class="confirm-button" onclick="add_follower_tw()">
+                    </form>
+                </div>
+            </div>
+
+
+            <div class = "socialnetwork">
+                <div class = "title">
+                    <div class = "logo">
+                    Quora
+                    </div>
+                </div>
+
+                <div class = "add-form">
+                    <form method="post" action = "#" enctype="multipart/form-data">
+                        <div class = "form-left">
+                            <p for="#" >Username:</p>
+                            <p for="#">User ID:</p>
+                        </div>
+
+                        <div class = "form-right">
+                            <input id="#" maxlength="30" name="username" type="text">
+                            <input id="id_email" maxlength="254" name="email" type="email">
+                        </div>
+
+                        <input name="submit" value="check" type="submit" class="confirm-button">
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--summary submit-->
+
+        <label class="end-hint">Check again. If there is no fault, press the "OK" button to add the following</label>
+        <input type="submit" value="OK" class="end-submit">
+
+    </div>
+
+</body>
+</html>

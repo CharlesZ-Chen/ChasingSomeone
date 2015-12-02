@@ -1,0 +1,305 @@
+.header
+{
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid #888;
+	background-color: #545652;
+	float: left;
+	color:#d5d5d5;
+	margin-bottom: 100px;
+	overflow:hidden;
+}
+
+.header-left
+{
+	float: left;
+	margin-left: 20%;
+}
+
+.nav
+{
+	margin-right:50px;
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	overflow: hidden;
+}
+
+.nav:hover
+{
+	color: white;
+}
+
+.nav:active
+{
+	color: #f0ad4e;
+}
+
+.header-right
+{
+	width: 200px; 					/*TBD*/
+	height: auto;
+	float: right;
+	padding-right: 20%;
+}
+.logout
+{
+	float: right;
+	color:#d5d5d5;
+	height: 50px;
+	line-height: 50px;
+	overflow: hidden;
+}
+.logout:hover
+{
+	color: white;
+}
+
+.logout:active
+{
+	color: #f0ad4e;
+}
+
+.content
+{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.title
+{
+    float: left;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 30px;
+    line-height: 40px;
+    text-indent: 35%;
+    font-size: 28px;
+    color: #AD244F;
+    font-weight: 200;
+}
+
+.following-list
+{
+    width:80%;
+    margin-left: 15%;
+    font-size: 20px;
+    float: left;
+}
+
+.following-item
+{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 20px;
+}
+
+.following-item .profile-picture
+{
+    float: left;
+    margin: 5px 5px;
+}
+
+.following-item .profile-picture img
+{
+    width: 40px;
+    height: 40px;
+}
+
+.following-item .following-name
+{
+    float: left;
+    width: 50%;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+    font-size: 24px;
+    text-indent: 20%;
+}
+
+.following-item a
+{
+    color: #545652;
+    font-size: 16px;
+}
+
+.function-button
+{
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: solid 1px #545652;
+}
+
+.function-button a
+{
+    float: right;
+    margin-right: 5%;
+    color: #545652;
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+.follower-name
+{
+    width:60%;
+    height: 200px;
+    float: left; /*won't be used*/
+    margin: 20px 20%;
+}
+
+.follower-name .add-hint
+{
+    width: 100%;
+    height: 25px;
+    margin-bottom: 10px;
+    line-height: 25px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #AD244F;
+}
+
+.follower-name input
+{
+    width: 80%;
+    height: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: block;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    font-size: 18px;
+}
+
+.follower-name a
+{
+    width: 80%;
+    height: 30px;
+    float: left;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    color:#d5d5d5 ;
+    font-size:18px;
+    background: #545652;
+    border: 1px solid #d5d5d5 ;
+    text-align: center;
+    text-decoration: none;
+    padding-top: 10px;
+}
+
+/*!!!!!!!!!!*/
+
+.content-right-add
+{
+	width: 100%;
+	height: auto;
+	float: left;
+	margin-left: 10%;
+	margin-top: 20px;
+}
+
+.hint
+{
+	font-size: 24px;
+	font-weight: bold;
+	color: #545652;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+/*social network1*/
+.socialnetwork
+{
+	width: 60%;
+	height: auto;
+	float: left;
+    margin-left: 10%;
+    margin-bottom: 20px;
+	border: 3px solid #777;
+	border-radius: 10px;
+}
+
+.socialnetwork .title
+{
+    width: 100%;
+	height: 80px;
+    float: left;
+	border-bottom: 2px solid #777;
+}
+
+.logo
+{
+	color :#AD244F;
+	font-size: 28px;
+	margin-top: 20px;
+}
+
+.add-form
+{
+	margin: 0 auto;
+	margin-top: 12px;
+    font-size: 16px;
+    float: left;
+}
+
+.form-left
+{
+	float: left;
+	padding-left: 25px;
+	width: 120px;
+	margin-left: 20px;
+}
+
+.form-left p
+{
+	margin-top:18px;
+}
+
+.form-right
+{
+	float: left;
+	width: 165px;
+	margin-left: 20px;
+}
+
+.form-right input
+{
+	margin-top:15px;
+}
+
+.confirm-button
+{
+    float: left;
+    width: 250px;
+    height: 40px;
+    margin-top: 25px;
+    margin-left: 60px;
+    margin-bottom: 30px;
+    color: #fff;
+    font-size: 16px;
+    border-color: transparent;
+    background-color: #AD244F;
+    border-radius: 5px;
+}
+
+.end-hint
+{
+    margin-left: 15%;
+}
+
+.end-submit
+{
+    float: left;
+    width: 250px;
+    height: 40px;
+    margin-top: 25px;
+    margin-left: 30%;
+    margin-bottom: 30px;
+    color: #fff;
+    font-size: 16px;
+    border-color: transparent;
+    background-color: #AD244F;
+    border-radius: 5px;
+}
