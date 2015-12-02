@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Following Information</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/informationFollow.css" />
+</head>
+<body>
+
+    <div class="header" onscroll = "no">
+        <div class="header-left">
+            <div class = "nav">
+                Home
+            </div>
+            <div class = "nav">
+                Following
+            </div>
+            <div class = "nav">
+                Favorite
+            </div>
+            <div class = "nav">
+                Information
+            </div>
+        </div>
+        <div class = "header-right">
+            <a class = "logout" href="{% url 'ChasingSomeoneApp:user_logout' %}" >Logout</a>
+        </div>
+    </div>
+
+    <div class="title">
+        <div class="title-1">ChasingSomeone</div>
+        <div class="title-2">Overview</div>
+    </div>
+    <div class="content">
+
+        <div class="description">
+            Personal Information
+        </div>
+
+        <div class="content-item">
+            <div class="item-left">Name:</div>
+            <div class="item-right">charles</div>
+        </div>
+
+        <div class="content-item">
+            <div class="item-left">Profile Picture:</div>
+            <div class="item-right">
+                <img src = "../../static/img/profile_picture.png" alt="large profile picture">
+            </div>
+        </div>
+
+        <div class="content-item">
+            <div class="item-left">Email:</div>
+            <div class="item-right">Charleszhuochen@gmail.com</div>
+        </div>
+
+        <div class="description">
+            Website Information
+        </div>
+        <div class="twitter-content">
+            <div class="sub-description">
+                Twitter
+            </div>
+            <div class="content-item-website">
+                <div class="website-item-left">tweets:</div>
+                <div class="website-item-right">charles</div>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+</html>

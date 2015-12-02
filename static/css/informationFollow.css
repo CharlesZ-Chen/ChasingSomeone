@@ -1,0 +1,198 @@
+body
+{
+    color: #545652;
+    font-size: 16px;
+    margin: 0 auto;
+}
+
+.header
+{
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid #888;
+	background-color: #545652;
+	float: left;
+	color:#d5d5d5;
+	margin-bottom: 20px;
+	overflow:hidden;
+}
+
+.header-left
+{
+	float: left;
+	margin-left: 20%;
+}
+
+.nav
+{
+	margin-right:50px;
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	overflow: hidden;
+}
+
+.nav:hover
+{
+	color: white;
+}
+
+.nav:active
+{
+	color: #f0ad4e;
+}
+
+.header-right
+{
+	width: 200px; 					/*TBD*/
+	height: auto;
+	float: right;
+	padding-right: 20%;
+}
+.logout
+{
+	float: right;
+	color:#d5d5d5;
+	height: 50px;
+	line-height: 50px;
+	overflow: hidden;
+}
+.logout:hover
+{
+	color: white;
+}
+
+.logout:active
+{
+	color: #f0ad4e;
+}
+
+.title
+{
+    float: left;
+    margin-left: 20%;
+    width: 60%;
+    height: 120px;
+    border-bottom: solid 20px #f5e79e ;
+}
+
+.title-1
+{
+    float: left;
+    text-indent: 30% ;
+    text-overflow: ellipsis;
+    width: 100%;
+    height: 80px;
+    line-height: 100px;
+    font-size: 26px;
+    color: #e23a6e;
+}
+
+.title-2
+{
+    float: right;
+    font-size: 20px;
+    padding-right: 20%;
+}
+
+.content
+{
+    float: left;
+    margin-left: 20%;
+    width: 60%;
+}
+
+.description
+{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 5%;
+    font-size: 18px;
+    font-weight: 400;
+    color: #e23a6e;
+}
+
+.content-item
+{
+    width:100%;
+    height: auto;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.content-item .item-left
+{
+    float: left;
+    width: 40%;
+    text-indent: 25%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+}
+
+.content-item .item-right
+{
+    float: left;
+    width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+}
+
+.item-right .profile-photo-large img
+{
+    float: left;
+    width: 180px;
+    height: 180px;
+}
+
+.twitter-content
+{
+    width: 60%;
+    float: left;
+}
+
+.sub-description
+{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    margin-bottom: 10px;
+    margin-left: 20%;
+    font-size: 20px;
+    color: #545652;
+    border-bottom: solid 1px #d5d5d5;
+}
+
+.content-item-website
+{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.content-item-website .website-item-left
+{
+    float: left;
+    width: 60%;
+    text-indent: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+}
+
+.content-item-website .website-item-right
+{
+    float: left;
+    width: 40%;
+    text-indent: 10%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
