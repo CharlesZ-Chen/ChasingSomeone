@@ -4,7 +4,7 @@ from django.http import Http404, HttpResponse
 from django.shortcuts import render
 
 from ChasingSomeoneApp.models.TwStatus import TwStatus
-from ChasingSomeoneApp.models.TwFollower import TwFollower
+from ChasingSomeoneApp.models.TwAccount import TwAccount
 from ChasingSomeoneApp.crawler.crawler_twitter import Crawler_twitter
 import time
 import json
@@ -18,12 +18,10 @@ def cmp(x, y):
 
 @login_required
 def get_status(request):
-    
     if not request.method == 'POST':
         raise Http404
-
     user_id = request.user.id
-    tw_follower_list = list(TwFollower.objects.filter(user_id=user_id))
+    tw_follower_list = list(TwAccount.objects.filter(user_id=user_id))
     tw_crawler = Crawler_twitter()
     total_json_status_list = []
 

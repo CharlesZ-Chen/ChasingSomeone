@@ -1,6 +1,6 @@
 __author__ = 'charleszhuochen'
 from django.db import models
-from ChasingSomeoneApp.models.TwFollower import TwFollower
+from ChasingSomeoneApp.models.TwAccount import TwAccount
 
 
 class TwStatus(models.Model):
@@ -11,7 +11,8 @@ class TwStatus(models.Model):
     img_url = models.ImageField(blank=True)
     lang = models.CharField(max_length=20, default='en')
 
-    twFollower = models.ForeignKey(TwFollower)
+    twAccount = models.ForeignKey(TwAccount)
+
 
     def __unicode__(self):
         return self.text
