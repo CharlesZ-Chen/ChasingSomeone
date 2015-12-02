@@ -1,0 +1,187 @@
+body
+{
+    font-size: 16px;
+    width: 100%;
+    margin:0 0;
+}
+.header
+{
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid #888;
+	background-color: #545652;
+	float: left;
+	color:#d5d5d5;
+	margin-bottom: 50px;
+	overflow:hidden;
+}
+
+.header-left
+{
+	float: left;
+	margin-left: 20%;
+}
+
+.nav
+{
+	margin-right:50px;
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	overflow: hidden;
+}
+
+.nav:hover
+{
+	color: white;
+}
+
+.nav:active
+{
+	color: #f0ad4e;
+}
+
+.header-right
+{
+	width: 200px; 					/*TBD*/
+	height: auto;
+	float: right;
+	padding-right: 20%;
+}
+.logout
+{
+	float: right;
+	color:#d5d5d5;
+	height: 50px;
+	line-height: 50px;
+	overflow: hidden;
+}
+.logout:hover
+{
+	color: white;
+}
+
+.logout:active
+{
+	color: #f0ad4e;
+}
+
+.title
+{
+    width: 100%;
+    margin-bottom: 40px;
+    color: #AD244F;
+    font-size: 24px;
+    text-indent: 37%;
+}
+
+.button-group
+{
+    width: 60%;
+    float: left;
+    margin-left: 33%;
+    margin-top: 30px;
+}
+
+.button-group button
+{
+    float: left;
+    margin-left: 10px;
+    background: transparent;
+    border: none;
+    text-decoration: underline;
+    font-size: 16px;
+    color: #d5d5d5;
+}
+
+.button-group button:hover
+{
+    color: #AD244F;
+}
+
+.content-left
+{
+    width: 50%;
+    margin-left: 25%;
+}
+
+.content-left form
+{
+    width: 20%;
+    float: left;
+}
+
+.content-left form input
+{
+    width: 100%;
+    height: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.name-list
+{
+    width: 40%;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    text-indent: 30%;
+    margin-bottom: 10px;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+    color: #545652;
+    font-size: 16px;
+}
+
+.edit-sign
+{
+    width: 20%;
+    float: left;
+}
+
+.edit
+{
+    width: 100%;
+    height: 50px;
+}
+
+.edit img
+{
+    width: 20px;
+    height: 20px;   /*TBD*/
+    margin-top:15px;
+    margin-bottom: 15px;
+}
+
+.content-right
+{
+    width: 15%;
+    float: left;
+    margin-top: 1%;
+    border: solid 2px #d5d5d5;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.content-right .notice
+{
+    height: 30px;
+    line-height: 30px;
+    float: left;
+}
+
+.content-right img
+{
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-right: 5px;
+}
+
+.content-right .notice-content
+{
+    float: left;
+    margin-top: 20px;
+}

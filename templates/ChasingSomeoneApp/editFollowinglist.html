@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/editFollowinglist.css">
+</head>
+<body>
+
+    <div class="header" onscroll = "no">
+        <div class="header-left">
+            <div class = "nav">
+                Home
+            </div>
+            <div class = "nav">
+                Following
+            </div>
+            <div class = "nav">
+                Favorite
+            </div>
+            <div class = "nav">
+                Information
+            </div>
+        </div>
+        <div class = "header-right">
+            <a class = "logout" href="{% url 'ChasingSomeoneApp:user_logout' %}" >Logout</a>
+        </div>
+    </div>
+
+    <div class="title">Edit Following</div>
+
+    <div class="content-left">
+        <form>
+            <input type="checkbox" value="1" name="delete"/>
+            <input type="checkbox" value="2" name="delete"/>
+            <input type="checkbox" value="3" name="delete"/>
+            <input type="checkbox" value="4" name="delete"/>
+            <input type="checkbox" value="5" name="delete"/>
+        </form>
+
+        <div class="name-list">
+            <div class="name">Charles</div>
+            <div class="name">Chloe</div>
+            <div class="name">Colin</div>
+            <div class="name">Colin</div>
+            <div class="name">Colin</div>
+        </div>
+
+        <div class="edit-sign">
+            <div class="edit">
+                <a href="#" title="edit button"><img src="../../static/img/edit_icon.png"></a>
+            </div>
+
+            <div class="edit">
+                <a href="#" title="edit button"><img src="../../static/img/edit_icon.png"></a>
+            </div>
+
+            <div class="edit">
+                <a href="#" title="edit button"><img src="../../static/img/edit_icon.png"></a>
+            </div>
+
+            <div class="edit">
+                <a href="#" title="edit button"><img src="../../static/img/edit_icon.png"></a>
+            </div>
+
+            <div class="edit">
+                <a href="#" title="edit button"><img src="../../static/img/edit_icon.png"></a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content-right">
+        <img src="../../static/img/notice_icon.png"/>
+        <div class="notice">Notice</div>
+        <div class="notice-content">
+            Push the edit button to edit the following information, add or delete one's related website account
+        </div>
+
+    </div>
+
+    <div class="button-group">
+        <button class="back-list">back</button>
+        <button class="delete">delete</button>
+        <button class="select-all">select all</button>
+    </div>
+</body>
+</html>
