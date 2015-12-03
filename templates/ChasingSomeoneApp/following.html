@@ -12,11 +12,11 @@
     {% include "ChasingSomeoneApp/header.html" %}
 
     <div class="content">
-        <div id="follower_list">
+        <div class="follower-list">
             <div class="title">Following List</div>
             <div class="function-button">
-                <a>add</a>
-                <a>edit</a>
+                <button>add</button>
+                <button>edit</button>
             </div>
             <!--following list-->
             <div class="following-list">
@@ -32,16 +32,18 @@
                 </div>
             </div>
         </div>
+
+        <div class="add-section">
         <!--add follower name-->
-        <div class="follower-name">
+            <div class="follower-name">
             <div class="add-hint">Add the people you want to follow's nickname:</div>
             <input type="text" name="fname" />
-            <a>cancel</a>
-            <a>next</a>
+            <button>next</button>
+            <button>cancel</button>
         </div>
 
         <!--add social website-->
-        <div id='add_follower_div' class="content-right-add">
+            <div id='add_follower_div' class="content-right-add">
             <div class = "hint">
                 Choose the social network and add your following!
             </div>
@@ -70,7 +72,6 @@
                 </div>
             </div>
 
-
             <div class = "socialnetwork">
                 <div class = "title">
                     <div class = "logo">
@@ -93,16 +94,14 @@
                         <input name="submit" value="check" type="submit" class="confirm-button">
                     </form>
                 </div>
-
             </div>
 
+            <!--summary submit-->
+            <label class="end-hint">Check again. If there is no fault, press the "OK" button to add the following</label>
+            <input type="submit" value="OK" class="end-submit">
         </div>
 
-        <!--summary submit-->
-
-        <label class="end-hint">Check again. If there is no fault, press the "OK" button to add the following</label>
-        <input type="submit" value="OK" class="end-submit">
-
+        </div>
     </div>
 
 </body>
