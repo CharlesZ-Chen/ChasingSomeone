@@ -10,12 +10,13 @@
 
 <body>
     <div class = "login-form">
-        <div class="logo-image"></div>
+        <div class="logo">ChasingSomeone</div>
+        <p>Sign In Here!</p>
         <div class = "content">
             <form id="login_form" method="post" action="/ChasingSomeone/login/">
            {% csrf_token %}
             {% if error %}
-                <p style="color: #ec407a">Error:{{ errorMessage }}</p><br/>
+                <p style="color: #ec407a;margin-left: 43%">Error:{{ errorMessage }}</p><br/>
             {% endif %}
             <div class = "content-left">
                 <p for="id_username" >Email:</p>

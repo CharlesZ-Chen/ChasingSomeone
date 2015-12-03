@@ -11,8 +11,6 @@
 
 <body>
 	<div class = "nav">
-		<div class = "nav-logo">
-		</div>
         <a href="{% url 'ChasingSomeoneApp:user_login' %}" class = "button-signin">Sign In</a>
 	</div>
     {% if registered %}
@@ -20,12 +18,12 @@
     <br/>
     <a href="{% url 'ChasingSomeoneApp:user_login' %}" class = "button-back">Back to Home Page</a>
     {% else %}
+    <div class="logo">ChasingSomeone</div>
 	<div class = "welcome">
 		Create Your Chasing Someone Account!
 	</div>
 
 	<div class="register-form">
-		<div class="logo-image"></div>
 		<div class = "content">
 			<form id="user_form" method="post" action = "{% url 'ChasingSomeoneApp:register' %}" enctype="multipart/form-data">
 			{% csrf_token %}
@@ -43,12 +41,10 @@
 				<input id="id_password" name="password1" type="password">
                 <input id="id_password" name="password2" type="password">
 			</div>
-        </div>
 		
-		<input name="submit" value="Register" type="submit" class="register-button">
-
-			
-		</form>
+            <input name="submit" value="Register" type="submit" class="register-button">
+            </form>
+        </div>
 	</div>
     {% endif %}
 </body>
