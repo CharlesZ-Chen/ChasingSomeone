@@ -8,25 +8,7 @@
     <script type="text/javascript" src="../../static/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="header" onscroll = "no">
-        <div class="header-left">
-            <div class = "nav">
-                Home
-            </div>
-            <div class = "nav">
-                Following
-            </div>
-            <div class = "nav">
-                Favorite
-            </div>
-            <div class = "nav">
-                Information
-            </div>
-        </div>
-        <div class = "header-right">
-            <a class = "logout" href="{% url 'ChasingSomeoneApp:user_logout' %}" >Logout</a>
-        </div>
-    </div>
+    {% include "ChasingSomeoneApp/header.html" %}
 
     <div class="content">
         <div class="title">Following List</div>
