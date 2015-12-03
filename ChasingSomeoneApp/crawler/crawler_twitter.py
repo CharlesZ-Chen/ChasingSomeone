@@ -5,14 +5,10 @@
 
 __author__ = 'Quan Zhang'
 
-import sys
-sys.path.append('../')
-
 from tweepy import API
 from tweepy import *
 from ChasingSomeoneApp.crawler import data
 from urllib2 import URLError
-
 
 class Crawler_twitter(object):
     api = API(data.auth)
@@ -77,11 +73,12 @@ class Crawler_twitter(object):
 if __name__ == '__main__':
     craw = Crawler_twitter()
     # print craw.api.get_user(id = '51248642')._json
-    print craw.add_follower(id = '51248642')
+    # print craw.add_follower(id = '51248642')
     # print craw.add_follower(id = 'Matthew Perry', screen_name = 'matthewperryfan')
-    print craw.api.user_timeline(id = '30653573')[0]._json
-    # print craw.get_status(id = 'Matthew Perry', screen_name = 'matthewperryfan')
-
+    print craw.api.user_timeline(id = '_QuanZhang_')[0]
+    print len(craw.get_status(id = 'charleszhuochen'))
+# 661580752568500224
+# 661580327198916610
 # api = API(auth)
 # test = api.get_user(id = 'Matthew Perry', screen_name = 'matthewperryfan')
 # print test

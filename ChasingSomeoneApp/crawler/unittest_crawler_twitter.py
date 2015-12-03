@@ -6,7 +6,7 @@
 __author__ = 'Quan Zhang'
 
 import unittest
-from crawler.crawler_twitter import Crawler_twitter
+from ChasingSomeoneApp.crawler.crawler_twitter import Crawler_twitter
 
 class CrawlerTestCase(unittest.TestCase):
 
@@ -23,7 +23,7 @@ class CrawlerTestCase(unittest.TestCase):
                          'add follower with wrong information')
         self.assertIsNotNone(self.crawler.add_follower(screen_name = 'matthewperryfan'),
                              'add follower with correct screen name')
-        self.assertEqual(self.crawler.add_follower(id = '30653573'), '30653573',
+        self.assertEqual(self.crawler.add_follower(id = '30653573').get('id'), '30653573',
                          'check return id if is equal to given correct id')
 
     def test_get_status(self):
