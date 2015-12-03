@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>active confirm</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_active.css' %}">
 </head>
 <body>
 {% if activated %}
-    <p>Thank you for activating your account!<p/>
+    <p>Thank you for activating your account!</p>
     <br/>
     <p>Please go back to log in!</p><a href={% url 'ChasingSomeoneApp:user_login' %}>back</a>
 {% else %}
-    <p>your account does not activate, please using your email for activation.</p><a href={% url 'ChasingSomeoneApp:user_login' %}>back</a>
+    <p>your account does not activate, please using your email for activation.</p>
+    <a href={% url 'ChasingSomeoneApp:user_login' %}>back</a>
 {% endif %}
 </body>
 </html>
