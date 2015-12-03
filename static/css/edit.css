@@ -99,6 +99,7 @@ body
 {
     float: left;
     margin-left: 20%;
+    padding-bottom: 20px;
     width: 60%;
 }
 
@@ -161,10 +162,11 @@ body
     height: 180px;
 }
 
-.twitter-content
+.website-content
 {
     width: 60%;
     float: left;
+    margin-bottom: 20px;
 }
 
 .sub-description
@@ -191,7 +193,7 @@ body
 
 .delete-button
 {
-    width: 40px;
+    width: 60px;
     height: 20px;
     line-height: 20px;
     float: left;
@@ -215,7 +217,7 @@ body
 {
     float: left;
     width: 60%;
-    text-indent: 30%;
+    text-indent: 60%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space:nowrap;
@@ -224,9 +226,20 @@ body
 .twitter-tweets
 {
     float: left;
-    width: 40%;
-    text-indent: 10%;
+    width: 30%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.save-change
+{
+    width: 30%;
+    height: 40px;
+    margin-left: 30%;
+    color: white;
+    font-size: 18px;
+    background: #e23a6e;
+    border: none;
+    margin-bottom: 20px;
 }
