@@ -1,3 +1,8 @@
+body
+{
+    margin: 0 0;
+}
+
 .header
 {
 	width: 100%;
@@ -79,7 +84,7 @@
     font-weight: 200;
 }
 
-.following-list
+.follower-list
 {
     width: 100%;
     height: auto;
@@ -140,13 +145,15 @@
     border-bottom: solid 1px #545652;
 }
 
-.function-button a
+.function-button button
 {
     float: right;
     margin-right: 5%;
     color: #545652;
-    font-size: 18px;
+    font-size: 16px;
     text-decoration: underline;
+    background: transparent;
+    border: none;
 }
 
 .follower-name
@@ -180,23 +187,20 @@
     font-size: 18px;
 }
 
-.follower-name a
+.follower-name button
 {
     width: 80%;
-    height: 30px;
+    height: 40px;
     float: left;
     margin-left: 15px;
     margin-bottom: 10px;
     color:#d5d5d5 ;
     font-size:18px;
     background: #545652;
-    border: 1px solid #d5d5d5 ;
+    border: 1px solid #d5d5d5;
     text-align: center;
-    text-decoration: none;
     padding-top: 10px;
 }
-
-/*!!!!!!!!!!*/
 
 .content-right-add
 {
@@ -293,7 +297,8 @@
 
 .end-hint
 {
-    margin-left: 15%;
+    float: left;
+    margin-left: 10%;
 }
 
 .end-submit
@@ -302,7 +307,7 @@
     width: 250px;
     height: 40px;
     margin-top: 25px;
-    margin-left: 30%;
+    margin-left: 20%;
     margin-bottom: 30px;
     color: #fff;
     font-size: 16px;
