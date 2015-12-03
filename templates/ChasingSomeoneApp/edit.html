@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+    <link rel="stylesheet" type = "text/css" href="../../static/css/edit.css">
+</head>
+<body>
+
+    <div class="header" onscroll = "no">
+        <div class="header-left">
+            <div class = "nav">
+                Home
+            </div>
+            <div class = "nav">
+                Following
+            </div>
+            <div class = "nav">
+                Favorite
+            </div>
+            <div class = "nav">
+                Information
+            </div>
+        </div>
+        <div class = "header-right">
+            <a class = "logout" href="{% url 'ChasingSomeoneApp:user_logout' %}" >Logout</a>
+        </div>
+    </div>
+
+    <div class="title">
+        <div class="title-1">ChasingSomeone</div>
+        <div class="title-2">Edit</div>
+    </div>
+
+     <div class="content">
+
+        <div class="description">
+            Personal Information
+        </div>
+
+        <div class="content-item">
+            <div class="item-left">Name:</div>
+            <input type="text" value="charles" class="name-input">
+        </div>
+
+        <div class="content-item">
+            <div class="item-left">Profile Picture:</div>
+            <div class="item-right">
+                <img src = "../../static/img/profile_picture.png" alt="large profile picture">
+            </div>
+        </div>
+
+        <div class="description">
+            Website Information
+        </div>
+        <div class="twitter-content">
+            <div class="sub-description">
+                <div class="website-name">Twitter</div>
+                <button class="delete-button" value="delete">delete</button>
+                <button class="delete-button" value="add">add</button>
+            </div>
+            <div class="content-item-website">
+                <div class="website-item-left">tweets:</div>
+                <input class="twitter-tweets" type="text">
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+</html>

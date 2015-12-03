@@ -81,6 +81,13 @@
 
 .following-list
 {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+.following-list
+{
     width:80%;
     margin-left: 15%;
     font-size: 20px;
