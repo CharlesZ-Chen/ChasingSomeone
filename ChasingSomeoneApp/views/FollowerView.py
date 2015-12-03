@@ -3,11 +3,21 @@ __author__ = 'charleszhuochen'
 import json
 
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, Http404, JsonResponse
+from django.http import HttpResponse, Http404, JsonResponse, HttpResponseRedirect
+from django.shortcuts import render
+from django.core.urlresolvers import reverse
 
 from ChasingSomeoneApp.models.Follower import Follower
 from ChasingSomeoneApp.views import AccountView
 
+
+def browse_following(request):
+    # user = request.user
+    # try:
+    #     follower_list = Follower.objects.get(user=user)
+    # except Follower.DoesNotExist:
+    #     follower_list = None
+    return render(request, 'ChasingSomeoneApp/following.html')
 
 @login_required
 def add_follower(request):

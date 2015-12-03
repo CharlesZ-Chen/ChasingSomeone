@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^home/$', UserView.user_home, name='user_home'),
     url(r'^logout/$', AuthView.user_logout, name='user_logout'),
 
+    url(r'browse_following/$', FollowerView.browse_following, name="browse_following"),
     url(r'^add_follower/$', FollowerView.add_follower, name="add_follower"),
     url(r'^delete_follower/$', FollowerView.delete_follower, name="delete_follower"),
 
