@@ -20,7 +20,7 @@
         </div>
         <!--following list-->
         <div class="following-list">
-
+            {% for flr in follower_list%}
             <div class="following-item">
                 <div class="profile-picture">
                     <img src="../../static/img/profile_picture.png">
@@ -30,6 +30,9 @@
                 </div>
                 <a href="#">more information</a>
             </div>
+            {% endfor %}
+
+
         </div>
 
         </div>
