@@ -1,16 +1,16 @@
  <div class="header" onscroll = "no">
         <div class="header-left">
             <div class = "nav">
-                Home
+                <a href="{% url 'ChasingSomeoneApp:user_home' %}">Home</a>
             </div>
             <div class = "nav">
-                Following
+                <a href="{% url 'ChasingSomeoneApp:browse_following' %}">Following</a>
             </div>
             <div class = "nav">
-                Favorite
+                <a href="{% url 'ChasingSomeoneApp:user_home' %}">Favorite</a>
             </div>
             <div class = "nav">
-                Information
+                <a href="{% url 'ChasingSomeoneApp:user_home' %}">Information</a>
             </div>
         </div>
         <div class = "header-right">
