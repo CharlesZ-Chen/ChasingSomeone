@@ -28,19 +28,23 @@
             <div class="title">&nbsp &nbsp &nbsp Website</div>
             <div class="list">
                 <div class="list-item">&nbsp &nbspTwitter</div>
-                <div class="list-item">&nbsp &nbspFacebook</div>
+                <div class="list-item">&nbsp &nbspQuora</div>
             </div>
         </div>
 
+
         <div class="overlay overlay-contentpush">
-			<button type="button" class="overlay-close" value="Back"></button>
+			<button type="button" class="overlay-close" value="Back" name="cross_button"></button>
+
             <div class="push-content">
+
                 <div class="push-nav">
                     <ul>
-                        <li href="#">Facebook</li>
-                        <li href="#">Twitter</li>
+                        <li><a href="#" name="push_quora_button">Quora</a></li>
+                        <li><a href="#" name="push_twitter_button">Twitter</a></li>
                     </ul>
                 </div>
+
                 <div class="push-post-list">
                     <div class="push-post">
                         <div class="post-title">
@@ -48,101 +52,81 @@
                             <div class="name">Charles Chen1</div>
                             <div class="time">11:11 29 Nov 2015</div>
                         </div>
-                        <div class="post-info">This is the content of one post!
+                        <div class="post-info">This is the content of one post! no image
                         </div>
 {#                        <div class="post-img">#}
 {#                            <img src="../../static/img/post_img.png"/>#}
 {#                        </div>#}
                     </div>
 
-                    <div class="push-post">
+                     <div class="push-post">
                         <div class="post-title">
                             <img src="../../static/img/profile_img.png"/>
                             <div class="name">Charles Chen2</div>
                             <div class="time">11:11 29 Nov 2015</div>
                         </div>
                         <div class="post-info">This is the content of one post!
+                            include image information
+                        </div>
+                        <div class="post-img">
+                            <img src="#"/>
+                        </div>
+                     </div>
+
+                    <div class="push-post-quora">
+                        <div class="post-title">
+                            <img src="../../static/img/profile_img.png"/>
+                            <div class="name">Charles Chen quora</div>
+                            <div class="time">11:11 29 Nov 2015</div>
+                        </div>
+                        <div class="post-info">
+                            <p>This is the content of one quora post!</p>
+                            <div class="action-type">
+                                "upvoted", "wrote" and "followed"
+                            </div>
+                            <div class="target">
+                                <label>Target:</label>question text /a person name / topic name
+                            </div>
+                            <div class="url-target">
+                                <label>url:</label> <a href="www.google.com">www.google.com</a>
+                            </div>
                         </div>
                         <div class="post-img">
                             <img src="#"/>
                         </div>
                     </div>
 
-                     <div class="push-post">
+                    <div class="push-post-quora">
                         <div class="post-title">
                             <img src="../../static/img/profile_img.png"/>
-                            <div class="name">Charles Chen3</div>
+                            <div class="name">Charles Chen quora</div>
                             <div class="time">11:11 29 Nov 2015</div>
                         </div>
-                        <div class="post-info">This is the content of one post!
+                        <div class="post-info">
+                            <p>This is the content of one quora post!</p>
+                            <div class="action-type">
+                                "upvoted", "wrote" and "followed"
+                            </div>
+                            <div class="target">
+                                <label>Target:</label>
+                                <p>question text /a person name / topic name</p>
+                            </div>
+                            <div class="url-target">
+                                <label>url:</label> <a href="www.google.com">www.google.com</a>
+                            </div>
                         </div>
                         <div class="post-img">
                             <img src="#"/>
                         </div>
                     </div>
 
-                     <div class="push-post">
-                        <div class="post-title">
-                            <img src="../../static/img/profile_img.png"/>
-                            <div class="name">Charles Chen4</div>
-                            <div class="time">11:11 29 Nov 2015</div>
-                        </div>
-                        <div class="post-info">This is the content of one post!
-                        </div>
-                        <div class="post-img">
-                            <img src="#"/>
-                        </div>
-                     </div>
-
-
-                     <div class="push-post">
-                        <div class="post-title">
-                            <img src="../../static/img/profile_img.png"/>
-                            <div class="name">Charles Chen5</div>
-                            <div class="time">11:11 29 Nov 2015</div>
-                        </div>
-                        <div class="post-info">This is the content of one post!
-                        </div>
-                        <div class="post-img">
-                            <img src="#"/>
-                        </div>
-                     </div>
-
-
-                     <div class="push-post">
-                        <div class="post-title">
-                            <img src="../../static/img/profile_img.png"/>
-                            <div class="name">Charles Chen6</div>
-                            <div class="time">11:11 29 Nov 2015</div>
-                        </div>
-                        <div class="post-info">This is the content of one post!
-                        </div>
-                        <div class="post-img">
-                            <img src="#"/>
-                        </div>
-                     </div>
-
-
-                     <div class="push-post">
-                        <div class="post-title">
-                            <img src="../../static/img/profile_img.png"/>
-                            <div class="name">Charles Chen7</div>
-                            <div class="time">11:11 29 Nov 2015</div>
-                        </div>
-                        <div class="post-info">This is the content of one post!
-                        </div>
-                        <div class="post-img">
-                            <img src="#"/>
-                        </div>
-                     </div>
                 </div>
 
             </div>
-
         </div>
 
 
-        <div class="content-right">
+        <div class="content-right" id="trigger-overlay-second">
             <div class="title">&nbsp &nbsp &nbsp Follower</div>
             <div class="list">
                 <div class="list-item">&nbsp &nbspCharles</div>
@@ -151,12 +135,134 @@
                 <div class="list-item">&nbsp &nbspMore</div>
             </div>
         </div>
+        <div class="overlay-second overlay-contentpush-second">
+            <button type="button" class="overlay-second-close" name="cross_button_second" value="Back"></button>
+            <div class="push-content">
+                <div class="push-content">
+
+                <div class="push-nav">
+                    <ul>
+                        <li>Charles</li>
+                        <li>Chloe</li>
+                        <li>Colin</li>
+                    </ul>
+                </div>
+
+                <div class="push-post-list">
+                    <div class="push-post">
+                        <div class="post-title">
+                            <img src="../../static/img/profile_img.png"/>
+                            <div class="name">Charles Chen1</div>
+                            <div class="time">11:11 29 Nov 2015</div>
+                        </div>
+                        <div class="post-info">This is the content of one post! no image
+                        </div>
+{#                        <div class="post-img">#}
+{#                            <img src="../../static/img/post_img.png"/>#}
+{#                        </div>#}
+                    </div>
+
+                     <div class="push-post">
+                        <div class="post-title">
+                            <img src="../../static/img/profile_img.png"/>
+                            <div class="name">Charles Chen2</div>
+                            <div class="time">11:11 29 Nov 2015</div>
+                        </div>
+                        <div class="post-info">This is the content of one post!
+                            include image information
+                        </div>
+                        <div class="post-img">
+                            <img src="#"/>
+                        </div>
+                     </div>
+
+                    <div class="push-post-quora">
+                        <div class="post-title">
+                            <img src="../../static/img/profile_img.png"/>
+                            <div class="name">Charles Chen quora</div>
+                            <div class="time">11:11 29 Nov 2015</div>
+                        </div>
+                        <div class="post-info">
+                            <p>This is the content of one quora post!</p>
+                            <div class="action-type">
+                                "upvoted", "wrote" and "followed"
+                            </div>
+                            <div class="target">
+                                <label>Target:</label>question text /a person name / topic name
+                            </div>
+                            <div class="url-target">
+                                <label>url:</label> <a href="www.google.com">www.google.com</a>
+                            </div>
+                        </div>
+                        <div class="post-img">
+                            <img src="#"/>
+                        </div>
+                    </div>
+
+                    <div class="push-post-quora">
+                        <div class="post-title">
+                            <img src="../../static/img/profile_img.png"/>
+                            <div class="name">Charles Chen quora</div>
+                            <div class="time">11:11 29 Nov 2015</div>
+                        </div>
+                        <div class="post-info">
+                            <p>This is the content of one quora post!</p>
+                            <div class="action-type">
+                                "upvoted", "wrote" and "followed"
+                            </div>
+                            <div class="target">
+                                <label>Target:</label>
+                                <p>question text /a person name / topic name</p>
+                            </div>
+                            <div class="url-target">
+                                <label>url:</label> <a href="www.google.com">www.google.com</a>
+                            </div>
+                        </div>
+                        <div class="post-img">
+                            <img src="#"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+{#            <ul id="myTab">#}
+{##}
+{#               <li>#}
+{#                   <a href="#home" data-toggle="tab">W3Cschool Home</a>#}
+{#               </li>#}
+{##}
+{#               <li>#}
+{#                   <a href="#ios" data-toggle="tab">iOS</a>#}
+{#                </li>#}
+{##}
+{#            </ul>#}
+{##}
+{#            <div id="myTabContent" class="tab-content">#}
+{#               <div class="tab-pane fade in" id="home">#}
+{#                  <p>W3Cschoool菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>#}
+{#               </div>#}
+{##}
+{#               <div class="tab-pane fade" id="ios">#}
+{#                  <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple#}
+{#                  TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>#}
+{#               </div>#}
+{##}
+{#            </div>#}
+{##}
+{#            <script>#}
+{#               $(function () {#}
+{#                  $('#myTab li:eq(1) a').tab('show');#}
+{#               });#}
+{#            </script>#}
+            </div>
+        </div>
 
         <script type="text/javascript" src="{% static 'js/classie.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/demo7.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/demo.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/demo-second.js' %}"></script>
     </div>
     </div>
-
 
 </body>
 </html>
