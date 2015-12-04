@@ -11,10 +11,10 @@
     <p>Thank you for activating your account!</p>
     <br/>
     <p>Please go back to log in!</p>
-    <a href={% url 'ChasingSomeoneApp:user_login' %}>back</a>
+    <a name = "actived_button" href={% url 'ChasingSomeoneApp:user_login' %}>back</a>
 {% else %}
     <p>your account does not activate, please using your email for activation.</p>
-    <a href={% url 'ChasingSomeoneApp:user_login' %}>back</a>
+    <a name="disactived_button"href={% url 'ChasingSomeoneApp:user_login' %}>back</a>
 {% endif %}
 </body>
 </html>

@@ -19,8 +19,8 @@
                 <p style="color: #ec407a;margin-left: 43%">Error:{{ errorMessage }}</p><br/>
             {% endif %}
             <div class = "content-left">
-                <p for="id_username" >Email:</p>
-                <p for="id_password" style="margin-right:37px">Password:</p>
+                <p  for="id_username" >Email:</p>
+                <p  for="id_password" style="margin-right:37px">Password:</p>
             </div>
                 
             <div class = "content-right">
@@ -28,12 +28,12 @@
                 <input type="password" name="password" value="" />
             </div>
 
-            <input type="submit" value="submit" class = "login-button" value = "login"/>
+            <input type="submit" value="submit" class = "login-button" name = "login"/>
 
             </form>
             <div class = "content-bottom">
                 <label>Doesn't have an account?</label>
-                <a href="{% url 'ChasingSomeoneApp:register' %}">Register Here</a>
+                <a name="signup" href="{% url 'ChasingSomeoneApp:register' %}">Register Here</a>
             </div>
             
         </div>

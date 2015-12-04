@@ -11,12 +11,12 @@
 
 <body>
 	<div class = "nav">
-        <a href="{% url 'ChasingSomeoneApp:user_login' %}" class = "button-signin">Sign In</a>
+        <a href="{% url 'ChasingSomeoneApp:user_login' %}" name="back_signIn_button" class = "button-signin">Sign In</a>
 	</div>
     {% if registered %}
     <div class = "welcome">Thanks for registering!</div>
     <br/>
-    <a href="{% url 'ChasingSomeoneApp:user_login' %}" class = "button-back">Back to Home Page</a>
+    <a href="{% url 'ChasingSomeoneApp:user_login' %}" name="back_button" class = "button-back">Back to Home Page</a>
     {% else %}
     <div class="logo">ChasingSomeone</div>
 	<div class = "welcome">

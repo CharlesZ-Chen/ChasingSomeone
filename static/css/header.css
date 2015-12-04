@@ -9,6 +9,11 @@
 	margin-bottom: 100px;
 	overflow:hidden;
 }
+.fixed
+{
+	position:fixed;
+	top:0;
+}
 
 .header-left
 {
@@ -32,11 +37,6 @@
 .header-left .nav a:hover
 {
 	color: white;
-}
-
-.header-left .nav a:active
-{
-	color: #f0ad4e;
 }
 
 .header-right
