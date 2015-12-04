@@ -23,7 +23,9 @@ def refresh_status(act_list, since_id=None):
 
     if len(sorted_status_list) > 10:
         sorted_status_list = sorted_status_list[:10]
-
+    for status in sorted_status_list:
+        status['act_type'] = 'twitter'
+        status['time_stamp'] = status['created_at']
     return sorted_status_list
 
 

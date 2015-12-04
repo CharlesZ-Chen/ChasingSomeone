@@ -1,7 +1,7 @@
 __author__ = 'charleszhuochen'
 
 import json
-
+import time
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404, JsonResponse
 
@@ -48,7 +48,35 @@ def refresh_status_by_site(request):
 # { 'flr_name': flr_name }
 @login_required
 def refresh_status_by_flr(request):
-    pass
+    if request.is_ajax():
+        json_data = json.loads(request.body)
+        try:
+            flr_name = json_data['flr_name']
+        except KeyError:
+            return HttpResponse(False)
+        lt_st_time = json_data.get('lt_st_time', None)
+        status_list = []
+        try:
+            tw_account = TwAccount.objects.get(follower__name=flr_name)
+            status_list.extend(TwStatusView.refresh_status([tw_account, ]))
+        except TwAccount.DoesNotExist:
+            pass
+        try:
+            qr_account = QrAccount.objects.get(follower__name=flr_name)
+            status_list.extend(QrStatusView.refresh_status([qr_account, ]))
+        except QrAccount.DoesNotExist:
+            pass
+        sorted_status_list = sorted(status_list, key=lambda status: status['time_stamp'], reverse=True)
+        if lt_st_time:
+            raw_struct_time = time.strptime(lt_st_time, '%Y-%m-%d %H:%M:%S')
+            lt_st_time_epoch = time.mktime(raw_struct_time)
+            sorted_status_list = filter(time_filter_wrapper(lt_st_time_epoch), sorted_status_list)
+        elif len(sorted_status_list) > 10:
+            sorted_status_list = sorted_status_list[:10]
+
+        # sorted_status_list = sorted(status_list, key=lambda tw_status: tw_status['id'], cmp=status_cmp)
+        return JsonResponse({'status_list': sorted_status_list})
+    raise Http404
 
 
 @login_required
@@ -59,3 +87,11 @@ def more_status_by_site(request):
 @login_required
 def more_status_by_flr(request):
     pass
+
+
+def time_filter_wrapper(lt_st_time_epoch):
+    def time_filter(status):
+        raw_struct_time = time.strptime(status['time_stamp'], '%Y-%m-%d %H:%M:%S')
+        time_epoch = time.mktime(raw_struct_time)
+        return time_epoch > lt_st_time_epoch
+    return time_filter

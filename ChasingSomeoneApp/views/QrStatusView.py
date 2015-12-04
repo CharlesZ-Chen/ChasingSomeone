@@ -14,6 +14,8 @@ def refresh_status(qr_act_list):
             status_list.extend(temp_list)
     if len(status_list) > 10:
         status_list = status_list[:10]
+    for status in status_list:
+        status['act_type'] = 'quora'
     return status_list
 
 def more_status(qr_act_list):
