@@ -1,67 +1,55 @@
 __author__ = 'charleszhuochen'
-from django.contrib.auth.decorators import login_required
-from django.http import Http404, HttpResponse
-from django.shortcuts import render
+
+import time
 
 from ChasingSomeoneApp.models.TwStatus import TwStatus
-from ChasingSomeoneApp.models.TwAccount import TwAccount
 from ChasingSomeoneApp.crawler.crawler_twitter import Crawler_twitter
-import time
-import json
 
-def cmp(x, y):
-    if x < y:
-        return 1
-    elif x == y:
-        return 0
-    return -1
 
-@login_required
-def get_status(request):
-    if not request.method == 'POST':
-        raise Http404
-    user_id = request.user.id
-    tw_follower_list = list(TwAccount.objects.filter(user_id=user_id))
+def refresh_status(act_list, since_id=None):
     tw_crawler = Crawler_twitter()
-    total_json_status_list = []
+    status_list = []
+    for act in act_list:
+        temp_list = tw_crawler.get_status(id=act.act_id, screen_name=act.screen_name, since_id=since_id)
+        if temp_list:
+            temp_list = transfer_status_list(temp_list)
+            save_status(act, temp_list)
+            status_list.extend(temp_list)
 
-    if 'id_latest_status' in request.POST:
-        id_latest_status = request.POST['id_latest_status']
-        for follower in tw_follower_list:
-            json_status_list = tw_crawler.get_status(id=follower.follower_id, screen_name=follower.screen_name,
-                                                     since_id=id_latest_status)
-            total_json_status_list.extend(json_status_list)
-    else:
-        for follower in tw_follower_list:
-            json_status_list = tw_crawler.get_status(id=follower.follower_id, screen_name=follower.screen_name)
-            total_json_status_list.extend(json_status_list)
+    if len(status_list) == 0:
+        return []
 
-    if len(total_json_status_list) == 0:
-        return HttpResponse(False)
+    sorted_status_list = sorted(status_list, key=lambda tw_status: tw_status['id'], cmp=status_cmp)
 
-    sorted_json_status_list = sorted(total_json_status_list, key=lambda tw_status: tw_status['id'],
-                                         cmp=cmp)
-    for json_status in sorted_json_status_list:
-        if not TwStatus.objects.filter(pk=json_status['id_str']):
-            status = TwStatus()
-            status.id = json_status['id_str']
-            for follower in tw_follower_list:
-                if follower.screen_name == json_status['user']['screen_name']:
-                    status.twFollower = follower
-                    break
-            status.text = json_status['text']
-            transfer_ts = time.strftime('%Y-%m-%d %H:%M:%S', time.strptime(json_status['created_at'],
-                                                                               '%a %b %d %H:%M:%S +0000 %Y'))
-            status.created_at = transfer_ts
-            status.save()
-    if len(sorted_json_status_list) > 10:
-        sorted_json_status_list = sorted_json_status_list[:10]
-    transfer_json_status_list = []
-    for json_status in sorted_json_status_list:
+    if len(sorted_status_list) > 10:
+        sorted_status_list = sorted_status_list[:10]
+    for status in sorted_status_list:
+        status['act_type'] = 'twitter'
+        status['time_stamp'] = status['created_at']
+    return sorted_status_list
+
+
+def save_status(act, status_list):
+    for status in status_list:
+        if not TwStatus.objects.filter(pk=status['id']):
+            new_status = TwStatus()
+            new_status.id = status['id']
+            new_status.twAccount = act
+            new_status.text = status['text']
+            new_status.created_at = status['created_at']
+            new_status.save()
+
+
+def more_status(act_id_list, max_id):
+    pass
+
+
+def transfer_status_list(json_status_list):
+    status_list = []
+    for json_status in json_status_list:
         status = transfer_json_status(json_status)
-        transfer_json_status_list.append(status)
-        dumped_json_status_list = json.dumps(transfer_json_status_list)
-    return HttpResponse(dumped_json_status_list)
+        status_list.append(status)
+    return status_list
 
 
 def transfer_json_status(json_status):
@@ -78,7 +66,11 @@ def transfer_json_status(json_status):
     if 'text' in json_status:
         text = json_status['text']
     if 'created_at' in json_status:
-        created_at = json_status['created_at']
+        raw_struct_time = time.strptime(json_status['created_at'], '%a %b %d %H:%M:%S +0000 %Y')
+        time_epoch = time.mktime(raw_struct_time)
+        time_epoch -= 8*3600
+        offset_struct_time = time.localtime(time_epoch)
+        created_at = time.strftime('%Y-%m-%d %H:%M:%S', offset_struct_time)
     if 'lang' in json_status:
         lang = json_status['lang']
     if 'user' in json_status:
@@ -98,3 +90,11 @@ def transfer_json_status(json_status):
                            u'lang': lang,
                            u'user': user}
     return status_aft_transfer
+
+
+def status_cmp(x, y):
+    if x < y:
+        return 1
+    elif x == y:
+        return 0
+    return -1
