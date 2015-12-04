@@ -10,7 +10,7 @@ class QrStatus(models.Model):
     target = models.CharField(max_length=200)
     url_target = models.CharField(max_length=200)
     user_profile_name = models.CharField(max_length=50)
-    twAccount = models.ForeignKey(QrAccount)
+    qrAccount = models.ForeignKey(QrAccount)
 
     def __unicode__(self):
         return self.target

@@ -1,8 +1,8 @@
 from django.conf.urls import url
-from .views import UserView, AuthView, FollowerView, TwStatusView, AccountView
+from .views import UserView, AuthView, FollowerView, AccountView, StatusView
 
 urlpatterns = [
-    url(r'^$',AuthView.user_login, name="user_login"),
+    url(r'^$', AuthView.user_login, name="user_login"),
     url(r'^login/$', AuthView.user_login, name="user_login"),
     url(r'^register/$', UserView.register, name='register'),
     url(r'^user_activate/(?P<user_pk>[0-9]+)/$', UserView.user_activate, name="user_activate"),
@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^save_account/$', AccountView.http_save_account, name="save_account"),
     url(r'^delete_account/$', AccountView.http_delete_account, name="delete_account"),
 
-    # url(r'^add_follower_tw/$', TWAccountView.add_follower, name="add_follower_tw"),
-    url(r'^get_status_tw/$', TwStatusView.get_status, name="get_status_tw"),
+    url(r'refresh_status_site/$', StatusView.refresh_status_by_site, name="refresh_status_site"),
+    url(r'refresh_status_flr/$', StatusView.refresh_status_by_flr, name='refresh_status_flr'),
 ]
 

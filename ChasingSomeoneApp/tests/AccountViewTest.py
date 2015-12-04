@@ -48,7 +48,7 @@ class TestAccountView(TestCase):
         '''verify a new account while the follower already have one will return False'''
         follower = Follower(name='testFollower', user=self.user)
         follower.save()
-        tw_account = TwAccount(follower=follower,act_id='3991423984', screen_name='charleszhuochen')
+        tw_account = TwAccount(follower=follower, act_id='3991423984', screen_name='charleszhuochen')
         tw_account.save()
 
         ajax_dict = {'act_type': 'twitter',
