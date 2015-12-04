@@ -14,6 +14,7 @@
     <script type="text/javascript" src="{% static 'js/Cookie.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/user_home.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/modernizr.custom.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/refresh_status.js' %}"></script>
 
 </head>
 
@@ -42,11 +43,10 @@
 
                 <div class="push-nav">
                     <ul>
-                        <li><button id="btn_refresh_tw" data-site_type="twitter">Twitter</button></li>
-                        <li><button id="btn_refresh_qr" data-site_type="quora">Quora</button></li>
+                        <li ><button id="btn_refresh_tw" data-site_type="twitter">Twitter</button></li>
+                        <li ><button id="btn_refresh_qr" data-site_type="quora">Quora</button></li>
                     </ul>
                 </div>
-
                 <div id="div_status_list" class="push-post-list">
                     <div class="push-post">
                         <div class="post-title">
@@ -54,8 +54,7 @@
                             <div class="name">Charles Chen1</div>
                             <div class="time">11:11 29 Nov 2015</div>
                         </div>
-                        <div class="post-info">This is the content of one post! no image
-                        </div>
+                        <div class="post-info">This is the content of one post!</div>
 {#                        <div class="post-img">#}
 {#                            <img src="../../static/img/post_img.png"/>#}
 {#                        </div>#}
@@ -266,6 +265,7 @@
         <script type="text/javascript" src="{% static 'js/demo-second.js' %}"></script>
     </div>
     </div>
+
 
 </body>
 </html>

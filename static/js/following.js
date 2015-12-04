@@ -62,7 +62,7 @@ function new_following_item(flr_name, flr_id, url_img){
         //wrap.appendChild(div_fl_item.cloneNode(true));
         //alert(wrap.innerHTML);
         return div_fl_item;
-    }
+}
 
 
 function initFollowingPage(){

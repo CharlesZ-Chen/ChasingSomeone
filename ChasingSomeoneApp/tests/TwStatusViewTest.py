@@ -85,6 +85,8 @@ class StatusViewTest(TestCase):
             print "%s\t" % status['act_type']
             print status.get('time_stamp', None)
             print "\n"
+
+
 class QrStatusViewTest(TestCase):
     def set_up(self):
         setup_dict = Utils.set_up()
