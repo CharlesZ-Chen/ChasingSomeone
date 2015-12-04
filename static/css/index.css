@@ -185,6 +185,29 @@
 	color: white;
 }
 
+.push-nav ul li button
+{
+	background: transparent;
+	border: none;
+	color: white;
+}
+
+.push-nav ul li button:hover
+{
+	color:#d5d5d5;
+}
+
+.refresh,.refresh-second
+{
+	background: transparent;
+	border: none;
+	color: white;
+	position: fixed;
+	right: 100px;
+	top: 30px;
+	font-size: 18px;
+}
+
 .push-post-list
 {
 	margin-left: 100px;

@@ -34,18 +34,20 @@
 
 
         <div class="overlay overlay-contentpush">
+
+            <button type="button" class="refresh">refresh</button>
 			<button type="button" class="overlay-close" value="Back" name="cross_button"></button>
 
             <div class="push-content">
 
                 <div class="push-nav">
                     <ul>
-                        <li><a href="#" name="push_quora_button">Quora</a></li>
-                        <li><a href="#" name="push_twitter_button">Twitter</a></li>
+                        <li><button id="btn_refresh_tw" data-site_type="twitter">Twitter</button></li>
+                        <li><button id="btn_refresh_qr" data-site_type="quora">Quora</button></li>
                     </ul>
                 </div>
 
-                <div class="push-post-list">
+                <div id="div_status_list" class="push-post-list">
                     <div class="push-post">
                         <div class="post-title">
                             <img src="../../static/img/profile_img.png"/>
@@ -136,6 +138,7 @@
             </div>
         </div>
         <div class="overlay-second overlay-contentpush-second">
+            <button type="button" class="refresh-second">refresh</button>
             <button type="button" class="overlay-second-close" name="cross_button_second" value="Back"></button>
             <div class="push-content">
                 <div class="push-content">
