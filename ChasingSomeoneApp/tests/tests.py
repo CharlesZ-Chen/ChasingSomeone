@@ -1,10 +1,9 @@
  # -*- coding: utf-8 -*-
 
-from django.test import TestCase
-from django.test import Client
+_+-_
 # Create your tests here.
 from ChasingSomeoneApp.views import TwStatusView
-from ChasingSomeoneApp.models import TwFollower, TwStatus
+from ChasingSomeoneApp.models import TwAccount, TwStatus
 from ChasingSomeoneApp.models.UserProfile import User
 import time
 
@@ -14,13 +13,13 @@ class TestTwFollower(TestCase):
         user.username = 'testUser'
         user.save()
         get_user = User.objects.get(username="testUser")
-        follower = TwFollower()
+        follower = TwAccount()
         follower.screen_name = "test"
         follower.follower_id = "123456"
         follower.user = get_user
         follower.save()
 
-        self.assertEqual(TwFollower.objects.filter(follower_id="123456").exists(), True)
+        self.assertEqual(TwAccount.objects.filter(follower_id="123456").exists(), True)
 
         status = TwStatus()
         status.id = u'107809348885028864'

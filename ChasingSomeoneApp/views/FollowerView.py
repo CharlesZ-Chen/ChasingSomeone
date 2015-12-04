@@ -12,12 +12,18 @@ from ChasingSomeoneApp.views import AccountView
 
 
 def browse_following(request):
-    # user = request.user
-    # try:
-    #     follower_list = Follower.objects.get(user=user)
-    # except Follower.DoesNotExist:
-    #     follower_list = None
-    return render(request, 'ChasingSomeoneApp/following.html')
+    user = request.user
+    try:
+        follower_list = Follower.objects.filter(user=user)
+    except Follower.DoesNotExist:
+        follower_list = None
+    flr_list = []
+    for flr in follower_list:
+        flr_detials = {"flr_name": flr.name,
+                       "flr_id": flr.id,
+                       "url_img": "../../static/img/profile_picture.png"}
+        flr_list.append(flr_detials)
+    return render(request, 'ChasingSomeoneApp/following.html', {'flr_list': flr_list})
 
 @login_required
 def add_follower(request):
@@ -34,7 +40,8 @@ def add_follower(request):
             return HttpResponse(False)
         new_follower = Follower(name=flr_name, user=request.user)
         new_follower.save()
-        response_dict = {'flr_id': new_follower.id}
+        response_dict = {'flr_id': new_follower.id,
+                         'flr_name': new_follower.name}
         return JsonResponse(response_dict)
     else:
         raise Http404

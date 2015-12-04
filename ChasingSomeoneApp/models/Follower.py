@@ -7,9 +7,5 @@ class Follower(models.Model):
     birthday = models.DateTimeField(blank=True, null=True)
 
     user = models.ForeignKey(User)
-
-    # def save(self, *args, **kwargs):
-    #     self.name = kwargs['name']
-    #     self.user = kwargs['user']
-    #     self.birthday = kwargs['birthday']
-    #     super(Follower, self).save(*args, **kwargs)
+    def __unicode__(self):
+        return self.name

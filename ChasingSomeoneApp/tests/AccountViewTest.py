@@ -83,7 +83,7 @@ class TestAccountView(TestCase):
         follower.save()
         ajax_dict = {'flr_name': flr_name,
                      'act_type': 'twitter',
-                     'act_id': None,
+                     # 'act_id': None,
                      'screen_name': 'charleszhuochen'}
         '''save_account would return True'''
         response = Utils.ajax_post_json(self.client, url_save_account, ajax_dict)
@@ -157,3 +157,9 @@ class TestAccountView(TestCase):
                      'screen_name': 'fakeuserfakeuserthisisfakeuseribek'}
         response = Utils.ajax_post_json(self.client, url_save_account, ajax_dict)
         self.assertEqual('404', response.content)
+
+def main():
+    pass
+if __name__ == '__main__':
+    main()
+

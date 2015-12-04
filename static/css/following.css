@@ -159,7 +159,7 @@ body
 .follower-name
 {
     width:60%;
-    height: 200px;
+    height: auto;
     float: left; /*won't be used*/
     margin: 20px 20%;
 }
@@ -178,7 +178,7 @@ body
 .follower-name input
 {
     width: 80%;
-    height: 20px;
+    height: auto;
     margin-left: 10px;
     margin-bottom: 10px;
     display: block;
@@ -208,7 +208,7 @@ body
 	height: auto;
 	float: left;
 	margin-left: 10%;
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 }
 
 .hint
