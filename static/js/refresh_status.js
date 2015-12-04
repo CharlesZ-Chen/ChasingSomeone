@@ -59,12 +59,29 @@ function toogle_disabled_btn($btn_this){
 function refresh_status_site($btn_this){
     var site_type = $btn_this.attr("data-site_type");
     var data = {"site_type": site_type};
-    ajax_json(url_refresh_status_site,data, response_refresh_status_site, csrftoken);
+    ajax_json(url_refresh_status_site, data, response_refresh_status_site, csrftoken);
+
 }
 
 function response_refresh_status_site(data, status){
-    var status_list = JSON.parse(data.responseText)['status_list'];
-
+    var post_list = JSON.parse(data.responseText)['status_list'];
+    if (post_list.length == 0){
+        return;
+    }
+    var $div_status_list = $("#div_status_list");
+    for(var i = post_list.length - 1; i >= 0; i--){
+        if(post_list[i]['act_type'] == 'twitter'){
+            var text = post_list[i]['text'];
+            var screen_name = post_list[i]['user']['screen_name'];
+            var url_profile_img = post_list[i]['user']['profile_image_url_https'];
+            var time_stamp = post_list[i]['time_stamp'];
+            var id = post_list[i]['id'];
+            var div_new_post = new_status_item_tw(id, screen_name, url_profile_img, time_stamp, text);
+            var wrap = document.createElement('div');
+            wrap.appendChild(div_new_post.cloneNode(true));
+            $div_status_list.prepend(wrap.innerHTML);
+        }
+    }
 }
 
 function new_status_item_tw(id, screen_name, url_profile_img, time_stamp, status_text){
@@ -84,6 +101,10 @@ function new_status_item_tw(id, screen_name, url_profile_img, time_stamp, status
     div_time.setAttribute("class", "time");
     var time_stamp_text = document.createTextNode(time_stamp);
     div_time.appendChild(time_stamp_text);
+    div_post_title.appendChild(img);
+    div_post_title.appendChild(div_screen_name);
+    div_post_title.appendChild(div_time);
+
 
     //for post info div
     div_post_info.setAttribute("class", "post-info");

@@ -58,7 +58,8 @@ class StatusViewTest(TestCase):
         response = Utils.ajax_post_json(self.client, url_refresh_status_site, ajax_dict)
         status_list = json.loads(response.content)['status_list']
         self.assertEqual(10, len(status_list))
-        print status_list
+        for status in status_list:
+            print status
 
         # since_id = status_list[0]["id"]
         # ajax_dict = {'site_type': 'twitter',
