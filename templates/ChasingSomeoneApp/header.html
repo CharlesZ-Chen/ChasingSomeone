@@ -24,7 +24,7 @@ $(function(){
     var offset=$header.offset();
     $(window).scroll(function(){
         var scrollTop=$(window).scrollTop();
-        if(offset.top<scrollTop){
+        if(offset.top!=scrollTop){
             $header.addClass("fixed");
         }else{
             $header.removeClass("fixed");
