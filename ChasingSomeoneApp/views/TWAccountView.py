@@ -55,6 +55,7 @@ def save_account(follower, **kwargs):
     new_account.act_id = kwargs['act_id']
     new_account.screen_name = kwargs['screen_name']
     new_account.save()
+
     return True
 
 

@@ -43,7 +43,7 @@ def register(request):
             msg += "http://127.0.0.1:8000" + reverse('ChasingSomeoneApp:user_activate', kwargs={'user_pk': user.pk})
             send_mail(subject,
                       msg,
-                      settings.EMAIL_HOST_USER, [user.email], fail_silently=False)
+                      settings.EMAIL_HOST_USER, [user.email], fail_silently=True)
             registered = True
 
         else:
