@@ -8,43 +8,46 @@
     <link href="{% static 'css/header.css' %}" type="text/css" rel="stylesheet"/>
     <script type="text/javascript" src="{% static 'js/jquery-2.0.0.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/Cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/following.js' %}"></script>
 </head>
 <body>
     {% include "ChasingSomeoneApp/header.html" %}
 
     <div class="content">
-        <div class="follower-list">
+        <div id="follower_list" class="follower-list">
             <div class="title">Following List</div>
             <div class="function-button">
-                <button>add</button>
-                <button onclick="{location.href='../../ChasingSomeone/add_follower'}">edit</button>
+                <button id="btn_goto_add_follower" >add</button>
+                <button>edit</button>
             </div>
             <!--following list-->
-            <div class="following-list">
-
-                <div class="following-item">
+            <div id="following_list" class="following-list">
+            {% for flr in flr_list %}
+                <div class="following-item" id="{{ flr.flr_id }}">
                     <div class="profile-picture">
                         <img src="../../static/img/profile_picture.png">
                     </div>
                     <div class="following-name">
-                        charles
+                        {{ flr.flr_name }}
                     </div>
                     <a href="#">more information</a>
                 </div>
+                {% endfor %}
             </div>
         </div>
 
-        <div class="add-section">
+        <div id="add_section" class="add-section" style="display: none">
         <!--add follower name-->
-            <div class="follower-name">
+            <div id="follower_profile" class="follower-name">
             <div class="add-hint">Add the people you want to follow's nickname:</div>
             <input type="text" name="fname" />
-            <button>next</button>
-            <button>cancel</button>
+            <button id="btn_add_follower" >next</button>
+            <button id="btn_cancel_add_follower" >cancel</button>
         </div>
 
         <!--add social website-->
-            <div id='add_follower_div' class="content-right-add">
+            <div id="add_account_div" class="content-right-add" style="display: none">
             <div class = "hint">
                 Choose the social network and add your following!
             </div>
@@ -56,20 +59,20 @@
                     </div>
                 </div>
 
-                <div class = "add-form">
-                    <form method="post" action = "#" enctype="multipart/form-data">
+                <div class = "add-form" style="display: none">
+{#                    <form method="post" action = "#" enctype="multipart/form-data">#}
                         <div class = "form-left">
                             <p for="#" >Username:</p>
-                            <p for="#">User ID:</p>
+{#                            <p for="#">User ID:</p>#}
                         </div>
 
                         <div class = "form-right">
                             <input id="screen_name" maxlength="30" name="username" type="text">
-                            <input id="follower_id" maxlength="30" name="userid" type="text">
+{#                            <input id="follower_id" maxlength="30" name="userid" type="text">#}
                         </div>
 
-                        <input name="submit" value="check" type="button" class="confirm-button" onclick="add_follower_tw()">
-                    </form>
+                        <input name="submit" value="check" type="button" class="confirm-button" data-act_type="twitter">
+{#                    </form>#}
                 </div>
             </div>
 
@@ -80,26 +83,26 @@
                     </div>
                 </div>
 
-                <div class = "add-form">
-                    <form method="post" action = "#" enctype="multipart/form-data">
+                <div class = "add-form" style="display: none">
+{#                    <form method="post" action = "#" enctype="multipart/form-data">#}
                         <div class = "form-left">
                             <p for="#" >Username:</p>
-                            <p for="#">User ID:</p>
+{#                            <p for="#">User ID:</p>#}
                         </div>
 
                         <div class = "form-right">
                             <input id="#" maxlength="30" name="username" type="text">
-                            <input id="id_email" maxlength="254" name="email" type="email">
+{#                            <input id="id_email" maxlength="254" name="email" type="email">#}
                         </div>
 
-                        <input name="submit" value="check" type="submit" class="confirm-button">
-                    </form>
+                        <input name="submit" value="check" type="submit" class="confirm-button" data-act_type="quora">
+{#                    </form>#}
                 </div>
             </div>
 
             <!--summary submit-->
             <label class="end-hint">Check again. If there is no fault, press the "OK" button to add the following</label>
-            <input type="submit" value="OK" class="end-submit">
+            <input id="btn_save_accounts" type="submit" value="OK" class="end-submit">
         </div>
 
         </div>

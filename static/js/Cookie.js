@@ -2,6 +2,7 @@
  * Created by charleszhuochen on 11/01/2015.
  */
 // using jQuery
+var csrftoken;
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie != '') {
@@ -16,4 +17,8 @@ function getCookie(name) {
         }
     }
     return cookieValue;
+}
+
+function initCsrftoken(){
+    csrftoken = getCookie('csrftoken');
 }
