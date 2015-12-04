@@ -122,21 +122,20 @@ class Crawler_quora(object):
             if item_class_name:
                 item_class_name = item_class_name[0]
             if not item_class_name:
-                for inner_item in item.children:
-                    class_name = inner_item.get('class')
-                    if class_name:
-                        class_name = class_name[0]
-                    if class_name == u'EventHeader':
-                        res = self.get_event_header(inner_item)
-                        if res:
-                            status_dict.update(res)
-                    elif class_name == u'QuestionText':
-                        target = inner_item.find('span', class_='question_text').get_text()
-                        link = inner_item.find('a', class_='question_link').get('href')
-                        if target:
-                            status_dict['target'] = target
-                        if link:
-                            status_dict['url'] = (self.base_url + link)
+                # for inner_item in item.children:
+                class_name = item.find('div', class_='EventHeader')
+                if class_name:
+                    res = self.get_event_header(class_name)
+                    if res:
+                        status_dict.update(res)
+                class_name = item.find('div', class_='QuestionText')
+                if class_name:
+                    target = class_name.find('span', class_='question_text').get_text()
+                    link = class_name.find('a', class_='question_link').get('href')
+                    if target:
+                        status_dict['target'] = target
+                    if link:
+                        status_dict['url'] = (self.base_url + link)
             elif item_class_name == u'object_follow_story':
                 info = item.find('a', class_='user')
                 if info:
