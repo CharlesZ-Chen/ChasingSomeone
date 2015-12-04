@@ -11,7 +11,10 @@ from ChasingSomeoneApp.models.UserProfile import UserProfile
 from ChasingSomeoneApp.models.Follower import Follower
 from ChasingSomeoneApp.models.TwAccount import TwAccount
 from ChasingSomeoneApp.models.TwStatus import TwStatus
+from ChasingSomeoneApp.models.QrAccount import QrAccount
+from ChasingSomeoneApp.models.QrStatus import QrStatus
 from ChasingSomeoneApp.crawler.crawler_twitter import Crawler_twitter
+from ChasingSomeoneApp.crawler.crawler_quora import Crawler_quora
 import time
 
 class Command(BaseCommand):
@@ -57,6 +60,16 @@ class Command(BaseCommand):
         except TwAccount.DoesNotExist:
             print 'Can not get Twitter account from TwAccount'
 
+    def get_qraccount(self, follower):
+        if not follower:
+            print 'Empty argument in get_qraccount'
+            return None
+        try:
+            qraccount = QrAccount.objects.get(follower=follower)
+            return  qraccount
+        except QrAccount.DoesNotExist:
+            print 'Can not get Twitter account from TwAccount'
+
     def is_update_twitter(self, twaccount):
         try:
             # max_id_status = TwStatus.objects.raw('select max(id) from ChasingSomeoneApp_twstatus')
@@ -82,8 +95,27 @@ class Command(BaseCommand):
             return False
         return True
 
-    def is_update_quora(self):
-        pass
+    def is_update_quora(self, qraccount):
+        try:
+            # max_id_status = TwStatus.objects.raw('select max(id) from ChasingSomeoneApp_twstatus')
+            status = QrStatus.objects.all().aggregate(Max('time_stamp'))
+            max_id_status = status['time_stamp__max']
+        except QrStatus.DoesNotExist:
+            print 'Can not get status from TwStatus'
+            max_id_status = None
+        crawler = Crawler_quora()
+        status_list = crawler.get_status(user_name=qraccount.user_name)
+
+        if not status_list:
+            print 'Can not get posts from user\'s homepage'
+            return False
+        try:
+            if not self.update_quora_status(qraccount, status_list):
+                return False
+        except KeyError:
+            print 'Error occured when updates quora status'
+            return False
+        return True
 
     def update_twitter_status(self, twaccount, status_list):
         for json_status in status_list:
@@ -97,8 +129,21 @@ class Command(BaseCommand):
             status.save()
 
 
-    def update_quora_status(self):
-        pass
+    def update_quora_status(self, qraccount, status_list):
+        is_update = False
+        for json_status in status_list:
+            if not QrStatus.objects.filter(target=json_status['target'], action_type=json_status['action_type']):
+                status = QrStatus()
+                status.user_profile_name = json_status['user_name']
+                status.qrAccount = qraccount
+                status.target = json_status['target']
+                status.url_target = json_status['url']
+                status.action_type = json_status['action_type']
+                status.user_profile_img = json_status['user_profile_image']
+                status.time_stamp = json_status['time_stamp']
+                status.save()
+                is_update = True
+        return is_update
 
     def handle(self, *args, **options):
         accout_list = self.get_user_list()
@@ -121,10 +166,9 @@ class Command(BaseCommand):
                 if self.is_update_twitter(twaccount):
                     notification += '\t' + twaccount.screen_name + ' in Twitter\n'
                     isUpdated = True
-                # quora_account = self.get_quora_acccout(follower)
-                # if self.is_update_quora(quora_account):
-                #     notification += quora_account.user_name + 'in Quora\n'
-                #     self.update_quora_status(quora_account)
-                #     isUpdated = True
+                quora_account = self.get_qraccount(follower)
+                if self.is_update_quora(quora_account):
+                    notification += '\t' + quora_account.user_name + ' in Quora\n'
+                    isUpdated = True
             if isUpdated:
                 self.my_send_email(notification, accout.user.email)
