@@ -96,6 +96,8 @@ class Crawler_quora(object):
                 action_text = 'wrote'
             elif action.find('followed') != -1:
                 action_text = 'followed'
+            elif action.find('asked') != -1:
+                action_text = 'asked'
             tmp_dict['action_type'] = action_text
         user = inner_item.find('a', class_='user')
         if user:
