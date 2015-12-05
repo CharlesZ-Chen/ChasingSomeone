@@ -6,30 +6,29 @@
             <div class = "nav">
                 <a name="following_button" href="{% url 'ChasingSomeoneApp:browse_following' %}">Following</a>
             </div>
-            <div class = "nav">
-                <a name="favorite_button" href="{% url 'ChasingSomeoneApp:user_home' %}">Favorite</a>
-            </div>
-            <div class = "nav">
-                <a name="information_button" href="{% url 'ChasingSomeoneApp:user_home' %}">Information</a>
-            </div>
+{#            <div class = "nav">#}
+{#                <a name="favorite_button" href="{% url 'ChasingSomeoneApp:user_home' %}">Favorite</a>#}
+{#            </div>#}
+{#            <div class = "nav">#}
+{#                <a name="information_button" href="{% url 'ChasingSomeoneApp:user_home' %}">Information</a>#}
+{#            </div>#}
         </div>
         <div class = "header-right">
             <a class = "logout" href="{% url 'ChasingSomeoneApp:user_logout' %}" >Logout</a>
         </div>
     </div>
- <script>
 
-$(function(){
-    var $header=$(".header");
-    var offset=$header.offset();
-    $(window).scroll(function(){
-        var scrollTop=$(window).scrollTop();
-        if(offset.top!=scrollTop){
-            $header.addClass("fixed");
-        }else{
-            $header.removeClass("fixed");
-        }
-    });
-
-})
- </script>
+{# <script>#}
+{#$(function(){#}
+{#    var $header=$(".header");#}
+{#    var offset=$header.offset();#}
+{#    $(window).scroll(function(){#}
+{#        var scrollTop=$(window).scrollTop();#}
+{#        if(offset.top!=scrollTop){#}
+{#            $header.addClass("fixed");#}
+{#        }else{#}
+{#            $header.removeClass("fixed");#}
+{#        }#}
+{#    });})#}
+{##}
+{# </script>#}

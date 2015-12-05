@@ -7,6 +7,6 @@ import time
 import subprocess
 
 while True:
-    command = 'python /Users/ZhangQuan/Documents/courses/ECE651/ChasingSomeone/manage.py email_sender'
+    command = 'python ./manage.py email_sender'
     subprocess.call(command, shell=True)
-    time.sleep(60)
+    time.sleep(15)

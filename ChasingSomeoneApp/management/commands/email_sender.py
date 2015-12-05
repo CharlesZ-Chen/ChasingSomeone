@@ -71,6 +71,8 @@ class Command(BaseCommand):
             print 'Can not get Twitter account from TwAccount'
 
     def is_update_twitter(self, twaccount):
+        if not twaccount:
+            return False
         try:
             # max_id_status = TwStatus.objects.raw('select max(id) from ChasingSomeoneApp_twstatus')
             status = TwStatus.objects.all().aggregate(Max('id'))
@@ -96,6 +98,8 @@ class Command(BaseCommand):
         return True
 
     def is_update_quora(self, qraccount):
+        if not qraccount:
+            return False
         try:
             # max_id_status = TwStatus.objects.raw('select max(id) from ChasingSomeoneApp_twstatus')
             status = QrStatus.objects.all().aggregate(Max('time_stamp'))
@@ -163,11 +167,11 @@ class Command(BaseCommand):
 
                 twaccount = self.get_twaccount(follower)
                 # TwAccount object
-                if self.is_update_twitter(twaccount):
+                if twaccount and self.is_update_twitter(twaccount):
                     notification += '\t' + twaccount.screen_name + ' in Twitter\n'
                     isUpdated = True
                 quora_account = self.get_qraccount(follower)
-                if self.is_update_quora(quora_account):
+                if quora_account and self.is_update_quora(quora_account):
                     notification += '\t' + quora_account.user_name + ' in Quora\n'
                     isUpdated = True
             if isUpdated:

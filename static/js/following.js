@@ -150,6 +150,7 @@ function verify_account(){
                 alert("please input quora user name");
                 return;
             }
+            data.user_name = user_name;
             break;
         default :
             return;
@@ -170,13 +171,21 @@ function response_verify_account($btn_clicked){
             return;
         }
         if(data.responseText == "404"){
-            alert("Sorry, this twitter account doesn't exist.");
+            alert("Sorry, this account doesn't exist.");
+            $btn_clicked.removeAttr("style");
+            $btn_clicked.attr("value", "check");
             return;
         }
         $btn_clicked.attr("value", "verified");
         $btn_clicked.css("background-color", "orange");
         $btn_clicked.attr("disabled", "disabled");
-        $btn_clicked.parent().find("#screen_name").attr("disabled", "disabled");
+        var act_type = $btn_clicked.attr('data-act_type');
+        if(act_type == "twitter"){
+            $btn_clicked.parent().find("#screen_name").attr("disabled", "disabled");
+        }
+        else if(act_type == "quora"){
+            $btn_clicked.parent().find("#user_name").attr("disabled", "disabled");
+        }
         //$btn_clicked.removeAttr("style");
     };
 }
@@ -228,10 +237,12 @@ function save_accounts(){
                         "act_type": act_type};
             switch(data.act_type){
                 case "twitter":
-                   var screen_name = $(this).find("#screen_name").val();
+                    var screen_name = $(this).find("#screen_name").val();
                     data["screen_name"] = screen_name;
                     break;
                 case "quora":
+                    var user_name = $(this).find("#user_name").val();
+                    data["user_name"] = user_name;
                     break;
                 default :
                     return;

@@ -10,7 +10,7 @@ from django.shortcuts import render
 
 from ChasingSomeoneApp.forms import SignUpForm, UserProfileForm
 from ChasingSomeoneApp.models.UserProfile import User
-
+from ChasingSomeoneApp.models.Follower import Follower
 # Create your views here.
 
 
@@ -59,7 +59,18 @@ def register(request):
 
 def user_home(request):
     if request.user.is_authenticated():
-        return render(request, 'ChasingSomeoneApp/user_home.html')
+        user = request.user
+        try:
+            follower_list = Follower.objects.filter(user=user)
+        except Follower.DoesNotExist:
+            follower_list = None
+        flr_list = []
+        for flr in follower_list:
+            flr_detials = {"flr_name": flr.name,
+                       "flr_id": flr.id,
+                       "url_img": "../../static/img/profile_picture.png"}
+            flr_list.append(flr_detials)
+        return render(request, 'ChasingSomeoneApp/user_home.html', {'flr_list': flr_list})
     else:
         return HttpResponseRedirect(reverse('ChasingSomeoneApp:user_login'))
 

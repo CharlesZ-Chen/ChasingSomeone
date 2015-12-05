@@ -293,7 +293,7 @@
 
 .action-type
 {
-	width: auto;
+	width:100%;
 	height: 30px;
 	line-height: 30px;
 	float: left;
@@ -302,8 +302,7 @@
 	overflow:hidden;
 	text-overflow: ellipsis;
 	white-space:nowrap;
-	border: solid 1px #545652;
-	border-radius: 5px;
+	color: #985f0d;
 }
 
 .target
